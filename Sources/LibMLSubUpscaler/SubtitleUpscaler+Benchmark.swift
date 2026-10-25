@@ -46,8 +46,9 @@ extension SubtitleUpscaler {
     ///
     /// 1. App open: what ``prewarm(_:)`` does, timed as it does it. The GPU pipelines' compile; then the
     ///    Neural Engine models first in this process (cold when the system has not compiled them for the Neural
-    ///    Engine since the install, an OS update or a purged cache; nothing here can purge that) and again after
-    ///    unloading them (warm, as on a later launch), each split into the function loads and the first predictions.
+    ///    Engine since the install, an OS update or a purged cache; nothing here can purge that, `coldLoadReport()`
+    ///    measures cold loads) and again after unloading them (warm, as on a later launch), each split into the
+    ///    function loads and the first predictions; then the `fastPrediction` replacements behind them.
     /// 2. A new upscaler's ``prepare()`` (its surfaces and their first use), and the first picture on it, against
     ///    the first picture on an upscaler that was not prepared.
     /// 3. Steady state: `iterations` pictures on that upscaler, as percentiles, in all and per stage (the plan on the
@@ -65,14 +66,19 @@ extension SubtitleUpscaler {
             lines.append("SubtitleUpscaler benchmark on \(fresh.device.name), wall ms")
             lines.append("1. app open (prewarm)")
             lines.append(String(format: "  GPU pipelines: %.1f", kernelCompile))
-            let first = try SubtitleUpscaleNeuralEngine.prewarm(Configuration.balanced.pair)
+            let first = try SubtitleUpscaleNeuralEngine.prewarm(Configuration.balanced.pair, upgrading: false)
             SubtitleUpscaleNeuralEngine.unloadModels()
-            let again = try SubtitleUpscaleNeuralEngine.prewarm(Configuration.balanced.pair)
+            let again = try SubtitleUpscaleNeuralEngine.prewarm(Configuration.balanced.pair, upgrading: false)
             for (name, t) in [("first in process", first), ("reloaded", again)] {
                 lines.append(String(format: "  Neural Engine, balanced %@: total %.1f = %d function loads %.1f + first predictions %.1f",
                                     name as NSString, t.total, t.functions, t.load, t.firstPrediction))
             }
-            for (_, c) in [("C4F16", Configuration.c4f16), ("C4F32", .c4f32)] { try SubtitleUpscaleNeuralEngine.prewarm(c.pair) }
+            let upgrade = try SubtitleUpscaleNeuralEngine.upgrade(Configuration.balanced.pair)
+            lines.append(String(format: "  then the fastPrediction functions behind them: %.1f", upgrade))
+            for c in [Configuration.c4f16, .c4f32] {
+                try SubtitleUpscaleNeuralEngine.prewarm(c.pair, upgrading: false)
+                try SubtitleUpscaleNeuralEngine.upgrade(c.pair)
+            }
 
             // 2 and 3. Per picture, after the prewarm.
             _ = try SubtitleUpscaleKernels.get()
@@ -157,5 +163,87 @@ extension SubtitleUpscaleNeuralEngine {
             line += String(format: "  %@ %5.2f (%4.1f)", shape.function as NSString, t, t * 1e6 / Double(2 * shape.height * shape.width))
         }
         return line
+    }
+}
+
+extension SubtitleUpscaleNeuralEngine {
+    /// A cold load of every function of `pair`: the compiled model copied to a path the system has not seen, so its
+    /// Neural Engine compile is not cached, then each function loaded and run once, one after another or each on a
+    /// thread of its own. Wall time in all and each function's own.
+    static func coldLoadLine(_ pair: Pair, parallel: Bool, strategy: MLOptimizationHints.SpecializationStrategy) throws -> String {
+        let fm = FileManager.default
+        let source = try ArtCNNCoreMLModels.url(alpha: pair.alpha, luma: pair.luma)
+        let root = fm.temporaryDirectory.appendingPathComponent("LibMLSubUpscaler-cold-\(UUID().uuidString)", isDirectory: true)
+        try fm.createDirectory(at: root, withIntermediateDirectories: true)
+        defer { try? fm.removeItem(at: root) }
+        let url = root.appendingPathComponent(source.lastPathComponent, isDirectory: true)
+        try fm.copyItem(at: source, to: url)
+        final class Loads: @unchecked Sendable {
+            let lock = NSLock()
+            var models: [MLModel?]
+            var each: [Double]
+            var failure: Error?
+            init(_ n: Int) { models = Array(repeating: nil, count: n); each = Array(repeating: 0, count: n) }
+        }
+        let loads = Loads(shapes.count)
+        @Sendable func run(_ k: Int) {
+            let t0 = DispatchTime.now().uptimeNanoseconds
+            do {
+                let shape = shapes[k]
+                let model = try load(shape, from: url, strategy: strategy)
+                loads.lock.withLock { loads.models[k] = model }
+                try runOnce(model, shape)
+            } catch {
+                loads.lock.withLock { loads.failure = error }
+            }
+            let ms = Double(DispatchTime.now().uptimeNanoseconds - t0) / 1e6
+            loads.lock.withLock { loads.each[k] = ms }
+        }
+        let t0 = DispatchTime.now().uptimeNanoseconds
+        if parallel {
+            let group = DispatchGroup()
+            for k in shapes.indices {
+                group.enter()
+                Thread { run(k); group.leave() }.start()
+            }
+            group.wait()
+        } else {
+            for k in shapes.indices { run(k) }
+        }
+        let total = Double(DispatchTime.now().uptimeNanoseconds - t0) / 1e6
+        if let failure = loads.failure { throw failure }
+        let models = loads.models, each = loads.each
+        let name = strategy == .fastPrediction ? "fastPrediction" : "default"
+        var line = String(format: "  %@ %@ %@: total %.0f |", pair.name as NSString, parallel ? "parallel" : "serial  ",
+                          name as NSString, total)
+        for (shape, ms) in zip(shapes, each) { line += String(format: " %@ %.0f", shape.function as NSString, ms) }
+        // Then each loaded function's prediction on its own surfaces, as the upscaler runs it, median.
+        guard let device = MTLCreateSystemDefaultDevice() else { return line }
+        line += "\n      predict p50:"
+        for (shape, model) in zip(shapes, models) {
+            guard let model else { continue }
+            let surfaces = try Surfaces(shape: shape, device: device)
+            var samples: [Double] = []
+            for i in 0..<23 {
+                let t0 = DispatchTime.now().uptimeNanoseconds
+                try predict(model, surfaces)
+                if i >= 3 { samples.append(Double(DispatchTime.now().uptimeNanoseconds - t0) / 1e6) }
+            }
+            line += String(format: " %@ %.2f", shape.function as NSString, SubtitleUpscaler.Spread(samples).p50)
+        }
+        return line
+    }
+
+    /// Cold loads of the balanced pairing, serial and parallel, with each specialisation strategy.
+    public static func coldLoadReport() -> String {
+        var lines = ["Cold Neural Engine loads (fresh model path), wall ms"]
+        let pair = SubtitleUpscaler.Configuration.balanced.pair
+        for strategy in [MLOptimizationHints.SpecializationStrategy.default, .fastPrediction] {
+            for parallel in [false, true] {
+                do { lines.append(try coldLoadLine(pair, parallel: parallel, strategy: strategy)) }
+                catch { lines.append("  failed: \(error)") }
+            }
+        }
+        return lines.joined(separator: "\n")
     }
 }

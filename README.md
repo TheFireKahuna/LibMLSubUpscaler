@@ -45,6 +45,15 @@ of everything no window covers.
    `r16Float` textures and once as `MLMultiArray(pixelBuffer:)`; the inputs and output backings are made once per
    surface set. A prediction that does not write its backing is an error.
 
+**Loading.** Each function loads first with Core ML's default specialisation, which the system compiles for the
+Neural Engine in about 160 ms a function when nothing is cached; `prewarm(_:)` and `prepare(canvas:)` return (or
+the upscaler is usable) once those are in. Each is then replaced, a function at a time on a thread of its own, by its
+`fastPrediction` specialisation, which takes 0.3 to 4 s a function cold. The system compiles one model at a time,
+so loading functions side by side gains nothing (Mac, 12 threads against one: 18.1 s against 18.0 s
+`fastPrediction`, 1.6 s against 1.8 s default). On the Mac the two specialisations predict within 10% of each
+other; on the A15 not measured yet. `SubtitleUpscaleNeuralEngine.coldLoadReport()` measures both from a model path
+the system has not seen.
+
 Models: one compiled multifunction model per alpha / luma pairing (`Sources/LibMLSubUpscaler/Models`), a function
 per window shape, weights stored once, built by `Scripts/ArtCNN` (its README has the steps). They load from the
 package's resources with the `fastPrediction` specialisation; nothing is compiled or written at run time but what the
@@ -57,7 +66,7 @@ One-time, at app open (`prewarm(_:)`, then `prepare(canvas:)` on the upscaler th
 | | |
 |---|---|
 | GPU pipelines | 5 to 10 ms (about 1 s when the system shader cache is cold) |
-| Neural Engine, one pairing, cold (install, OS update, purged cache) | about 12 s, nearly all function loads |
+| Neural Engine, one pairing, cold (install, OS update, purged cache), `fastPrediction` | about 12 s, nearly all function loads |
 | the same, warm | about 0.5 s |
 | `prepare(canvas:)` | 25 to 90 ms |
 

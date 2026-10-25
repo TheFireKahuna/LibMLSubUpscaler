@@ -35,16 +35,19 @@ enum SubtitleUpscaleNeuralEngine {
 
     private static let lock = NSLock()
     nonisolated(unsafe) private static var models: [Key: Result<MLModel, Error>] = [:]
+    nonisolated(unsafe) private static var prewarmed: Set<Pair> = []
+    nonisolated(unsafe) private static var upgrades: Set<Pair> = []
 
-    /// The pair's function for `shape` from the package's compiled model, loaded for the CPU and Neural Engine and
-    /// specialised for prediction latency. Blocks for the load, about 150 ms for each function the first time in a
-    /// process; ``prewarm(_:)`` does them all in the background.
+    /// The pair's function for `shape` from the package's compiled model, loaded for the CPU and Neural Engine. First
+    /// with Core ML's default specialisation, which the system compiles for the Neural Engine in about 160 ms a
+    /// function when nothing is cached (the `fastPrediction` one takes 0.3 to 4 s a function, 12 s or more for a
+    /// pairing); ``upgrade(_:)`` replaces it with the `fastPrediction` one. Blocks for the load.
     static func model(_ pair: Pair, _ shape: Shape) throws -> MLModel {
         lock.lock()
         defer { lock.unlock() }
         let key = Key(pair: pair, shape: shape)
         if let cached = models[key] { return try cached.get() }
-        let made = Result { try load(pair, shape) }
+        let made = Result { try load(shape, from: try ArtCNNCoreMLModels.url(alpha: pair.alpha, luma: pair.luma), strategy: .default) }
         models[key] = made
         return try made.get()
     }
@@ -60,42 +63,70 @@ enum SubtitleUpscaleNeuralEngine {
     }
 
     /// Loads every function of `pair` and runs each once, so nothing is left for the first subtitle but the
-    /// prediction itself.
+    /// prediction itself, then starts ``upgrade(_:)`` on a thread of its own when `upgrading`. Blocks; a pair
+    /// already prewarmed returns at once.
     @discardableResult
-    static func prewarm(_ pair: Pair) throws -> PrewarmTimes {
+    static func prewarm(_ pair: Pair, upgrading: Bool = true) throws -> PrewarmTimes {
         var times = PrewarmTimes()
+        guard !lock.withLock({ prewarmed.contains(pair) }) else { return times }
         func lap(_ t0: UInt64) -> Double { Double(DispatchTime.now().uptimeNanoseconds - t0) / 1e6 }
         for shape in shapes {
             var t0 = DispatchTime.now().uptimeNanoseconds
             let loaded = try model(pair, shape)
             times.load += lap(t0)
-            let dims = [1, 1, shape.height, shape.width].map { NSNumber(value: $0) }
-            let features = try MLDictionaryFeatureProvider(dictionary: [
-                "xa": MLFeatureValue(multiArray: try MLMultiArray(shape: dims, dataType: .float16)),
-                "xl": MLFeatureValue(multiArray: try MLMultiArray(shape: dims, dataType: .float16)),
-            ])
             t0 = DispatchTime.now().uptimeNanoseconds
-            _ = try loaded.prediction(from: features)
+            try runOnce(loaded, shape)
             times.firstPrediction += lap(t0)
             times.functions += 1
         }
+        lock.withLock { _ = prewarmed.insert(pair) }
+        if upgrading, lock.withLock({ upgrades.insert(pair).inserted }) {
+            Thread { _ = try? upgrade(pair) }.start()
+        }
         return times
+    }
+
+    /// Replaces each of `pair`'s functions with its `fastPrediction` specialisation, loaded and run once, one after
+    /// another: the system compiles one model at a time, so loading them side by side gains nothing. A prediction
+    /// already running keeps the model it started with. Blocks; wall milliseconds.
+    @discardableResult
+    static func upgrade(_ pair: Pair) throws -> Double {
+        let t0 = DispatchTime.now().uptimeNanoseconds
+        let url = try ArtCNNCoreMLModels.url(alpha: pair.alpha, luma: pair.luma)
+        for shape in shapes {
+            let loaded = try load(shape, from: url, strategy: .fastPrediction)
+            try runOnce(loaded, shape)
+            lock.withLock { models[Key(pair: pair, shape: shape)] = .success(loaded) }
+        }
+        return Double(DispatchTime.now().uptimeNanoseconds - t0) / 1e6
+    }
+
+    static func runOnce(_ model: MLModel, _ shape: Shape) throws {
+        let dims = [1, 1, shape.height, shape.width].map { NSNumber(value: $0) }
+        _ = try model.prediction(from: try MLDictionaryFeatureProvider(dictionary: [
+            "xa": MLFeatureValue(multiArray: try MLMultiArray(shape: dims, dataType: .float16)),
+            "xl": MLFeatureValue(multiArray: try MLMultiArray(shape: dims, dataType: .float16)),
+        ]))
     }
 
     /// Drops the loaded functions, as a new process starts (the system keeps its Neural Engine compilations). For the
     /// benchmark.
     static func unloadModels() {
-        lock.withLock { models.removeAll() }
+        lock.withLock {
+            models.removeAll()
+            prewarmed.removeAll()
+            upgrades.removeAll()
+        }
     }
 
-    private static func load(_ pair: Pair, _ shape: Shape) throws -> MLModel {
+    static func load(_ shape: Shape, from url: URL, strategy: MLOptimizationHints.SpecializationStrategy) throws -> MLModel {
         let configuration = MLModelConfiguration()
         configuration.computeUnits = .cpuAndNeuralEngine
         configuration.functionName = shape.function
         var hints = MLOptimizationHints()
-        hints.specializationStrategy = .fastPrediction
+        hints.specializationStrategy = strategy
         configuration.optimizationHints = hints
-        return try MLModel(contentsOf: try ArtCNNCoreMLModels.url(alpha: pair.alpha, luma: pair.luma), configuration: configuration)
+        return try MLModel(contentsOf: url, configuration: configuration)
     }
 
     /// Runs `model` on one window's two planes (``Surfaces``), one call for both. Core ML writes the outputs into

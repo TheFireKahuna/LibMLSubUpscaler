@@ -197,9 +197,11 @@ public final class SubtitleUpscaler: @unchecked Sendable {
         didSet { precondition((1...7).contains(supportRadius)) }
     }
 
-    /// Compiles the shared pipelines, loads `configuration`'s Core ML model and has the Neural Engine
-    /// compile each function, on a background queue, so the first picture waits for none of it. For app open: a few
-    /// seconds after an install, an OS update or a purged cache, under a second otherwise.
+    /// Compiles the shared pipelines, loads `configuration`'s Core ML model and has the Neural Engine compile each
+    /// function, on a background queue, so the first picture waits for none of it; then replaces each function with
+    /// its `fastPrediction` specialisation behind them, a function at a time. For app open: a second or two after an
+    /// install, an OS update or a purged cache (the replacement continues in the background for some seconds more),
+    /// well under a second otherwise.
     public static func prewarm(_ configuration: Configuration = .default) {
         DispatchQueue.global(qos: .utility).async {
             _ = try? SubtitleUpscaleKernels.get()
@@ -213,15 +215,18 @@ public final class SubtitleUpscaler: @unchecked Sendable {
         workspace = Workspace(device: kernels.device)
     }
 
-    /// Makes this upscaler's window surfaces and runs each through the configuration's model once, then one small
+    /// Readies the upscaler for its first subtitle: the configuration's models loaded (what ``prewarm(_:)`` does,
+    /// waited for), this upscaler's window surfaces made and each run through its model once, then one small
     /// picture through the whole pass, so the first subtitle pays only the steady-state cost. The surfaces are one
     /// set per window shape, and as many sets of each shape as the plans of representative subtitles on `canvas` use
-    /// (one to three lines across 30 to 90% of its width, a line a twentieth of its height). Blocks (most of it is
-    /// the Neural Engine's first use of each surface); for a background queue at app open or when a session starts,
-    /// after ``prewarm(_:)``. A plan needing more windows of one shape than this made still makes them on first use.
+    /// (one to three lines across 30 to 90% of its width, a line a twentieth of its height). Blocks: for a
+    /// background thread, when a session starts. A plan needing more windows of one shape than this made still makes
+    /// them on first use.
     public func prepare(canvas: CGSize = CGSize(width: 1920, height: 1080)) throws {
         try lock.withLock {
             let config = _configuration
+            _ = try SubtitleUpscaleKernels.get()
+            try SubtitleUpscaleNeuralEngine.prewarm(config.pair)
             var counts = Dictionary(uniqueKeysWithValues: SubtitleUpscaleNeuralEngine.shapes.map { ($0, 1) })
             let lineHeight = max(8, Int(canvas.height / 20)), gap = lineHeight / 4
             for lines in 1...3 {
