@@ -108,7 +108,7 @@ Of a call, about 70 to 75% is the Neural Engine. The first picture on a prepared
 steady state on some pictures. C4F16 alone is the least steady: its predictions vary run to run more than the
 others'.
 
-`SubtitleUpscaler.benchmark()` prints all of this for the device it runs on, the per-shape prediction times the plan's
+`SubtitleUpscaler.benchmark(submission:)` prints all of this for the device it runs on, the per-shape prediction times the plan's
 cost table comes from included. Measure in Release only; Debug figures are not comparable (the planner alone runs 50
 times slower). On a Mac:
 
