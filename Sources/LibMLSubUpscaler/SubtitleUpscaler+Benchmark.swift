@@ -54,8 +54,9 @@ extension SubtitleUpscaler {
     /// 3. Steady state: `iterations` pictures on that upscaler, as percentiles, in all and per stage (the plan on the
     ///    CPU, GPU gather, predictions, GPU composite).
     ///
-    /// Then each window shape's prediction time, which ``SubtitleUpscaleTilePlan``'s estimates come from.
-    public static func benchmark(iterations: Int = 40) -> String {
+    /// Then each window shape's prediction time, which ``SubtitleUpscaleTilePlan``'s estimates come from. The GPU
+    /// passes go through `submission`.
+    public static func benchmark(iterations: Int = 40, submission: any SubtitleUpscaleSubmission) -> String {
         func ms(_ t0: UInt64) -> Double { Double(DispatchTime.now().uptimeNanoseconds - t0) / 1e6 }
         var lines: [String] = []
         do {
@@ -86,8 +87,8 @@ extension SubtitleUpscaler {
             let configurations: [(String, Configuration)] = [("C4F16", .c4f16), ("C4F32", .c4f32), ("balanced", .balanced)]
             for c in benchmarkCases() {
                 for (name, configuration) in configurations {
-                    let cold = try SubtitleUpscaler(configuration: configuration).measureRun(c.picture, iterations: 0)
-                    let upscaler = try SubtitleUpscaler(configuration: configuration)
+                    let cold = try SubtitleUpscaler(configuration: configuration, submission: submission).measureRun(c.picture, iterations: 0)
+                    let upscaler = try SubtitleUpscaler(configuration: configuration, submission: submission)
                     t0 = DispatchTime.now().uptimeNanoseconds
                     try upscaler.prepare()
                     let prepare = ms(t0)

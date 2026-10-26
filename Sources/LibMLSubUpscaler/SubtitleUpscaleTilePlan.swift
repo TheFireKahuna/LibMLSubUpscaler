@@ -36,7 +36,7 @@ struct SubtitleUpscaleTilePlan: Equatable {
 
     /// Wall milliseconds of one synchronous prediction of both of a window's planes (`alpha` and `luma` the
     /// networks on them), measured on the A15 (Apple TV 4K, tvOS 27.2, Release, the `fastPrediction`
-    /// specialisation; ``SubtitleUpscaler/benchmark(iterations:)`` prints the device's own). Proportions, not the
+    /// specialisation; ``SubtitleUpscaler/benchmark(iterations:submission:)`` prints the device's own). Proportions, not the
     /// absolute times, steer the plan.
     static func milliseconds(alpha: ArtCNNModel, luma: ArtCNNModel, height: Int, width: Int) -> Double {
         let table: [Int: [Int: Double]] = switch (alpha, luma) {

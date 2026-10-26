@@ -14,8 +14,9 @@ import os
 /// Output pixels farther than 5 source pixels from any non-transparent pixel are exactly transparent, so the
 /// network runs only on the content bounds grown by that support (``SubtitleUpscaleTilePlan``).
 ///
-/// One process-wide device, queue, pipeline set and model set (``prewarm(_:)``); each upscaler keeps its
-/// working buffers and window surfaces between calls, so the steady state allocates nothing. An instance runs one
+/// One process-wide device, pipeline set and model set (``prewarm(_:)``); the GPU passes go through the caller's
+/// ``SubtitleUpscaleSubmission``. Each upscaler keeps its working buffers and window surfaces between calls, so the
+/// steady state allocates nothing. An instance runs one
 /// picture at a time (calls are serialised); ``upscale(_:)`` runs a burst and waits.
 public final class SubtitleUpscaler: @unchecked Sendable {
 
@@ -172,10 +173,9 @@ public final class SubtitleUpscaler: @unchecked Sendable {
 
     /// The shared Metal device the upscaler runs on: textures passed in must come from it.
     public var device: MTLDevice { kernels.device }
-    /// The shared queue; any queue on ``device`` works.
-    public var commandQueue: MTLCommandQueue { kernels.queue }
-
     let kernels: SubtitleUpscaleKernels
+    /// The caller's submission, which every GPU pass goes through.
+    let submission: any SubtitleUpscaleSubmission
     /// Serialises every call; recursive, so a convenience holds it across its staging and its ``upscale(_:)``.
     private let lock = NSRecursiveLock()
     var _configuration: Configuration
@@ -209,8 +209,14 @@ public final class SubtitleUpscaler: @unchecked Sendable {
         }
     }
 
-    public init(configuration: Configuration = .default) throws {
+    /// An upscaler whose GPU passes go through `submission`, which must be on the system's default Metal device
+    /// (``device``, where the shared pipelines are compiled).
+    public init(configuration: Configuration = .default, submission: any SubtitleUpscaleSubmission) throws {
         kernels = try SubtitleUpscaleKernels.get()
+        guard submission.device === kernels.device else {
+            throw UpscaleError.unavailable("the submission is on \(submission.device.name), not the upscaler's device")
+        }
+        self.submission = submission
         _configuration = configuration
         workspace = Workspace(device: kernels.device)
     }
@@ -301,18 +307,17 @@ public final class SubtitleUpscaler: @unchecked Sendable {
         return (passes, (current, job.destination))
     }
 
-    private func encodeResample(_ src: MTLTexture, _ dst: MTLTexture, into commandBuffer: MTLCommandBuffer) throws {
+    private func encodeResample(_ src: MTLTexture, _ dst: MTLTexture, into pass: any SubtitleUpscalePass) throws {
         let across = try workspace.intermediate(2, width: dst.width, height: src.height)
-        guard let encoder = commandBuffer.makeComputeCommandEncoder(dispatchType: .serial) else { throw UpscaleError.gpu("no compute encoder") }
-        encoder.setComputePipelineState(kernels.resample)
+        pass.setPipeline(kernels.resample)
         for (axis, (from, to)) in [(src, across), (across, dst)].enumerated() {
-            var a = UInt32(axis)
-            encoder.setTexture(from, index: 0)
-            encoder.setTexture(to, index: 1)
-            encoder.setBytes(&a, length: 4, index: 0)
-            dispatch(encoder, kernels.resample, width: to.width, height: to.height)
+            // The second axis reads what the first wrote.
+            if axis > 0 { pass.barrier() }
+            pass.setTexture(from, index: 0)
+            pass.setTexture(to, index: 1)
+            pass.setValue(UInt32(axis), index: 0)
+            dispatch(pass, kernels.resample, width: to.width, height: to.height)
         }
-        encoder.endEncoding()
     }
 
     // MARK: - Conveniences
@@ -376,13 +381,42 @@ public final class SubtitleUpscaler: @unchecked Sendable {
         return made
     }
 
-    /// Runs `encode` in a fresh command buffer on the shared queue and waits for it.
-    func run(_ encode: (MTLCommandBuffer) throws -> Void) throws {
-        guard let commandBuffer = kernels.queue.makeCommandBuffer() else { throw UpscaleError.gpu("no command buffer") }
-        try encode(commandBuffer)
-        commandBuffer.commit()
-        commandBuffer.waitUntilCompleted()
-        if let error = commandBuffer.error { throw UpscaleError.gpu("\(error)") }
+    /// Runs `encode` in a batch of its own and waits for it. A batch whose encoding throws is still committed (with
+    /// what it has), so it is never left open.
+    func run(_ encode: (any SubtitleUpscalePass) throws -> Void) throws {
+        guard let batch = submission.makeBatch() else { throw UpscaleError.gpu("no batch") }
+        let waiter = Completions()
+        guard let pass = batch.makePass() else {
+            waiter.commit(batch)
+            _ = waiter.wait()
+            throw UpscaleError.gpu("no compute pass")
+        }
+        var thrown: Error?
+        do { try encode(pass) } catch { thrown = error }
+        waiter.commit(batch)
+        let failure = waiter.wait()
+        if let thrown { throw thrown }
+        if let failure { throw UpscaleError.gpu(failure) }
+    }
+
+    /// The completions of a pass's batches: each commit counted, the first failure kept, and one wait for them all.
+    final class Completions: @unchecked Sendable {
+        private let group = DispatchGroup()
+        private let failure = OSAllocatedUnfairLock<String?>(initialState: nil)
+
+        func commit(_ batch: any SubtitleUpscaleBatch) {
+            group.enter()
+            batch.commit { [self] why in
+                if let why { failure.withLock { if $0 == nil { $0 = why } } }
+                group.leave()
+            }
+        }
+
+        /// Waits for every batch committed so far; the first failure, or nil.
+        func wait() -> String? {
+            group.wait()
+            return failure.withLock { $0 }
+        }
     }
 
     // MARK: - One picture
@@ -401,7 +435,7 @@ public final class SubtitleUpscaler: @unchecked Sendable {
     }
 
     /// Encodes the kept area's content mask (the support the composite keeps). Nil when the kept area is empty.
-    private func encodeMask(_ job: Job, kept: Rect, encoder: MTLComputeCommandEncoder) throws -> Geometry? {
+    private func encodeMask(_ job: Job, kept: Rect, pass: any SubtitleUpscalePass) throws -> Geometry? {
         let pw = job.source.width, ph = job.source.height
         var g = Geometry()
         g.support = UInt32(supportRadius)
@@ -409,29 +443,31 @@ public final class SubtitleUpscaler: @unchecked Sendable {
         g.pictureWidth = UInt32(pw); g.pictureHeight = UInt32(ph)
         g.width = UInt32(kept.width); g.height = UInt32(kept.height)
         g.straightAlpha = job.sourceAlpha == .straight ? 1 : 0
-        let geometrySize = MemoryLayout<Geometry>.stride
         guard kept.width > 0 else { return nil }
         let h = kept.height
         let wordsX = (kept.width + 31) / 32
         g.wordsX = UInt32(wordsX)
         try workspace.reserveMask(height: h, wordsX: wordsX)
         let ws = workspace
-        encoder.setTexture(job.source, index: 0)
-        encoder.setComputePipelineState(kernels.maskBits)
-        encoder.setBuffer(ws.bits, offset: 0, index: 0)
-        encoder.setBytes(&g, length: geometrySize, index: 1)
+        // Bits, then their row dilation, then the square one: each step reads the one before.
+        pass.setTexture(job.source, index: 0)
+        pass.setPipeline(kernels.maskBits)
+        pass.setBuffer(ws.bits, offset: 0, index: 0)
+        pass.setValue(g, index: 1)
         // 32 wide, so each simdgroup is one word of one row.
-        encoder.dispatchThreads(MTLSize(width: wordsX * 32, height: h, depth: 1), threadsPerThreadgroup: MTLSize(width: 32, height: 4, depth: 1))
-        encoder.setComputePipelineState(kernels.maskRows)
-        encoder.setBuffer(ws.bits, offset: 0, index: 0)
-        encoder.setBuffer(ws.rows, offset: 0, index: 1)
-        encoder.setBytes(&g, length: geometrySize, index: 2)
-        dispatch(encoder, kernels.maskRows, width: wordsX, height: h)
-        encoder.setComputePipelineState(kernels.maskColumns)
-        encoder.setBuffer(ws.rows, offset: 0, index: 0)
-        encoder.setBuffer(ws.support, offset: 0, index: 1)
-        encoder.setBytes(&g, length: geometrySize, index: 2)
-        dispatch(encoder, kernels.maskColumns, width: wordsX, height: h)
+        pass.dispatchThreads(MTLSize(width: wordsX * 32, height: h, depth: 1), threadsPerThreadgroup: MTLSize(width: 32, height: 4, depth: 1))
+        pass.barrier()
+        pass.setPipeline(kernels.maskRows)
+        pass.setBuffer(ws.bits, offset: 0, index: 0)
+        pass.setBuffer(ws.rows, offset: 0, index: 1)
+        pass.setValue(g, index: 2)
+        dispatch(pass, kernels.maskRows, width: wordsX, height: h)
+        pass.barrier()
+        pass.setPipeline(kernels.maskColumns)
+        pass.setBuffer(ws.rows, offset: 0, index: 0)
+        pass.setBuffer(ws.support, offset: 0, index: 1)
+        pass.setValue(g, index: 2)
+        dispatch(pass, kernels.maskColumns, width: wordsX, height: h)
         return g
     }
 
@@ -506,71 +542,72 @@ public final class SubtitleUpscaler: @unchecked Sendable {
         }
         var g = Geometry()
         stages.plan = lap()
-        // The gather, then every window's composite, each composite waiting on its window's event, which the CPU
-        // signals when that window's prediction returns: both command buffers go to the GPU before any prediction
-        // runs, and each composite starts as its window's outputs are ready while later windows are still predicting.
-        guard let gather = kernels.queue.makeCommandBuffer(), let compose = kernels.queue.makeCommandBuffer() else {
-            throw UpscaleError.gpu("no command buffer")
+        // The clears and the mask, then a batch per window's gather that signals its window's event, then a batch
+        // per window's composite that waits on its window's other event, which the CPU signals when that window's
+        // prediction returns: every batch goes to the GPU before any prediction runs, and each composite starts as
+        // its window's outputs are ready while later windows are still predicting. Batches from one submission run
+        // in the order they are committed.
+        let completions = Completions()
+        guard let prepare = submission.makeBatch(), let pass = prepare.makePass() else { throw UpscaleError.gpu("no batch") }
+        pass.setPipeline(kernels.clearRect)
+        pass.setTexture(job.destination, index: 0)
+        for rect in clears {
+            pass.setValue(SIMD4<Int32>(Int32(rect.x), Int32(rect.y), Int32(rect.width), Int32(rect.height)), index: 0)
+            dispatch(pass, kernels.clearRect, width: rect.width, height: rect.height)
         }
-        guard let encoder = gather.makeComputeCommandEncoder(dispatchType: .serial) else { throw UpscaleError.gpu("no compute encoder") }
-        encoder.setComputePipelineState(kernels.clearRect)
-        encoder.setTexture(job.destination, index: 0)
-        for var rect in clears.map({ SIMD4<Int32>(Int32($0.x), Int32($0.y), Int32($0.width), Int32($0.height)) }) {
-            encoder.setBytes(&rect, length: MemoryLayout<SIMD4<Int32>>.stride, index: 0)
-            dispatch(encoder, kernels.clearRect, width: Int(rect.z), height: Int(rect.w))
-        }
-        guard let made = try encodeMask(job, kept: kept, encoder: encoder), !records.isEmpty else {
-            encoder.endEncoding()
-            gather.commit()
-            gather.waitUntilCompleted()
-            if let error = gather.error { throw UpscaleError.gpu("\(error)") }
+        let made = try encodeMask(job, kept: kept, pass: pass)
+        completions.commit(prepare)
+        guard let made, !records.isEmpty else {
+            if let failure = completions.wait() { throw UpscaleError.gpu(failure) }
             return
         }
         g = made
-        encoder.endEncoding()
         let events = try workspace.events(records.count)
         let value = workspace.nextEventValue()
-        // Each window's gather in an encoder of its own, then its gather event: its prediction starts as its inputs
-        // are written, while later windows are still gathering.
-        for (k, var record) in records.enumerated() {
-            guard let encoder = gather.makeComputeCommandEncoder(dispatchType: .serial) else { throw UpscaleError.gpu("no compute encoder") }
-            encoder.setComputePipelineState(kernels.tileGather)
-            encoder.setTexture(job.source, index: 0)
-            encoder.setBytes(&g, length: MemoryLayout<Geometry>.stride, index: 0)
-            encoder.setTexture(surfaces[k].alphaIn.texture, index: 1)
-            encoder.setTexture(surfaces[k].lumaIn.texture, index: 2)
-            encoder.setBytes(&record, length: MemoryLayout<WindowRecord>.stride, index: 1)
-            encoder.dispatchThreads(MTLSize(width: plan.windows[k].width, height: plan.windows[k].height, depth: 1),
-                                    threadsPerThreadgroup: MTLSize(width: 32, height: 8, depth: 1))
-            encoder.endEncoding()
-            gather.encodeSignalEvent(events.gather[k], value: value)
-        }
-
-        for (k, var record) in records.enumerated() {
-            compose.encodeWaitForEvent(events.compose[k], value: value)
-            guard record.coreWidth > 0, record.coreHeight > 0 else { continue }
-            guard let encoder = compose.makeComputeCommandEncoder(dispatchType: .serial) else { throw UpscaleError.gpu("no compute encoder") }
-            encoder.setComputePipelineState(kernels.compositeTiles)
-            encoder.setTexture(job.source, index: 0)
-            encoder.setTexture(job.destination, index: 1)
-            encoder.setBuffer(workspace.support, offset: 0, index: 0)
-            encoder.setBytes(&g, length: MemoryLayout<Geometry>.stride, index: 1)
-            encoder.setTexture(surfaces[k].alphaOut.texture, index: 2)
-            encoder.setTexture(surfaces[k].lumaOut.texture, index: 3)
-            encoder.setBytes(&record, length: MemoryLayout<WindowRecord>.stride, index: 2)
-            dispatch(encoder, kernels.compositeTiles, width: Int(record.coreWidth), height: Int(record.coreHeight))
-            encoder.endEncoding()
-        }
-        gather.commit()
-        compose.commit()
-        // Whatever happens below, every event is signalled, so the queued composite never waits forever.
+        // Whatever happens below, every compose event is signalled, so no queued composite waits forever.
         var signalled = false
         func release() {
             guard !signalled else { return }
             signalled = true
             for e in events.compose.prefix(records.count) where e.signaledValue < value { e.signaledValue = value }
         }
-        defer { release() }
+        defer {
+            release()
+            _ = completions.wait()
+        }
+        // Each window's gather in a batch of its own, then its gather event: its prediction starts as its inputs are
+        // written, while later windows are still gathering.
+        for (k, record) in records.enumerated() {
+            guard let batch = submission.makeBatch(), let pass = batch.makePass() else { throw UpscaleError.gpu("no batch") }
+            pass.setPipeline(kernels.tileGather)
+            pass.setTexture(job.source, index: 0)
+            pass.setValue(g, index: 0)
+            pass.setTexture(surfaces[k].alphaIn.texture, index: 1)
+            pass.setTexture(surfaces[k].lumaIn.texture, index: 2)
+            pass.setValue(record, index: 1)
+            pass.dispatchThreads(MTLSize(width: plan.windows[k].width, height: plan.windows[k].height, depth: 1),
+                                 threadsPerThreadgroup: MTLSize(width: 32, height: 8, depth: 1))
+            batch.signal(events.gather[k], value: value)
+            completions.commit(batch)
+        }
+        for (k, record) in records.enumerated() where record.coreWidth > 0 && record.coreHeight > 0 {
+            guard let batch = submission.makeBatch() else { throw UpscaleError.gpu("no batch") }
+            batch.wait(for: events.compose[k], value: value)
+            guard let pass = batch.makePass() else {
+                completions.commit(batch)
+                throw UpscaleError.gpu("no compute pass")
+            }
+            pass.setPipeline(kernels.compositeTiles)
+            pass.setTexture(job.source, index: 0)
+            pass.setTexture(job.destination, index: 1)
+            pass.setBuffer(workspace.support, offset: 0, index: 0)
+            pass.setValue(g, index: 1)
+            pass.setTexture(surfaces[k].alphaOut.texture, index: 2)
+            pass.setTexture(surfaces[k].lumaOut.texture, index: 3)
+            pass.setValue(record, index: 2)
+            dispatch(pass, kernels.compositeTiles, width: Int(record.coreWidth), height: Int(record.coreHeight))
+            completions.commit(batch)
+        }
         stages.tiles = records.count
 
         // All windows' predictions in flight together, each starting when its window's gather event fires and
@@ -599,18 +636,17 @@ public final class SubtitleUpscaler: @unchecked Sendable {
             mark = inputs
         }
         stages.predict = lap()
-        compose.waitUntilCompleted()
+        let gpuFailure = completions.wait()
         stages.composite = lap()
-        if let error = gather.error { throw UpscaleError.gpu("\(error)") }
+        if let gpuFailure { throw UpscaleError.gpu(gpuFailure) }
         if let error = failure.withLock({ $0 }) { throw error }
-        if let error = compose.error { throw UpscaleError.gpu("\(error)") }
     }
 
-    private func dispatch(_ encoder: MTLComputeCommandEncoder, _ pipeline: MTLComputePipelineState, width: Int, height: Int) {
+    private func dispatch(_ pass: any SubtitleUpscalePass, _ pipeline: MTLComputePipelineState, width: Int, height: Int) {
         guard width > 0, height > 0 else { return }
         let tw = pipeline.threadExecutionWidth
         let th = max(1, min(pipeline.maxTotalThreadsPerThreadgroup / tw, 8))
-        encoder.dispatchThreads(MTLSize(width: width, height: height, depth: 1), threadsPerThreadgroup: MTLSize(width: tw, height: th, depth: 1))
+        pass.dispatchThreads(MTLSize(width: width, height: height, depth: 1), threadsPerThreadgroup: MTLSize(width: tw, height: th, depth: 1))
     }
 
     // MARK: - Working set

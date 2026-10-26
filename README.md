@@ -9,7 +9,7 @@ video's GPU time left alone.
 import LibMLSubUpscaler
 
 SubtitleUpscaler.prewarm(.balanced)                     // at app open, in the background
-let upscaler = try SubtitleUpscaler(configuration: .balanced)
+let upscaler = try SubtitleUpscaler(configuration: .balanced, submission: gpu)  // the player's GPU submission
 try upscaler.prepare(canvas: CGSize(width: 1920, height: 1080))
 let sharp = try upscaler.upscale(image)                 // CGImage, CVPixelBuffer, or MTLTexture jobs
 ```
@@ -26,6 +26,11 @@ The network runs on the Neural Engine through Core ML. GPU passes prepare its in
 content mask (one plane, the support, over the kept area), each window's gather, each window's composite, and clears
 of everything no window covers.
 
+The upscaler owns no command queue. Its GPU passes go through the caller's submission (`SubtitleUpscaleSubmission`,
+with `SubtitleUpscaleBatch` and `SubtitleUpscalePass`: pipelines, bindings by index, small constant arguments,
+dispatches, barriers, and an event waited on before a batch or signalled after it), so they run on the player's queue
+with its Metal, Metal 4 or Metal 3. The tests submit through a Metal 3 implementation (`Metal3Submission`).
+
 ## How a picture is run
 
 1. **Plan** (`SubtitleUpscaleTilePlan`, CPU, 0.1 to 0.7 ms on the A15). The caller's `Content` gives each row's first
@@ -35,9 +40,9 @@ of everything no window covers.
    every window is costed by its measured pair-call time.
 2. **Windows.** The models have fixed shapes: heights 46, 78, 142 by widths 256, 512, 1024, 2048, each a core plus
    the network's 7-pixel reach on every side, so a core's output is exact.
-3. **One submission, no CPU waits between stages.** The gather command buffer (clears, mask, then each window's
-   gather in its own encoder followed by a GPU-signalled event) and the composite command buffer (each window's
-   composite after a wait on its own event) are committed before any prediction runs.
+3. **Every batch committed up front, no CPU waits between stages.** The clears and the mask, each window's gather in a
+   batch that signals its window's event when it completes, and each window's composite in a batch that waits on its
+   other event are all committed before any prediction runs.
 4. **Predictions in flight.** One thread per window waits on its gather event, runs one Core ML call for both planes
    (a pair program: `xa`, `xl` in, `ya`, `yl` out), and signals its composite's event. Every event is signalled
    whatever fails.

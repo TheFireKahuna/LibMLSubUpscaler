@@ -1,7 +1,7 @@
 import Foundation
 import Metal
 
-/// The process's one set of upscaler GPU state: device, queue and the compiled pipelines of the passes around the
+/// The process's one set of upscaler GPU state: device and the compiled pipelines of the passes around the
 /// Neural Engine. Built once, on first use (``SubtitleUpscaler/prewarm()`` builds it off the caller's thread), and
 /// shared by every ``SubtitleUpscaler``.
 final class SubtitleUpscaleKernels: @unchecked Sendable {
@@ -13,7 +13,6 @@ final class SubtitleUpscaleKernels: @unchecked Sendable {
     }
 
     let device: MTLDevice
-    let queue: MTLCommandQueue
     let maskBits: MTLComputePipelineState
     let maskRows: MTLComputePipelineState
     let maskColumns: MTLComputePipelineState
@@ -39,10 +38,7 @@ final class SubtitleUpscaleKernels: @unchecked Sendable {
     /// A fresh set: ``get()`` makes the shared one; the benchmark makes its own to time the compile.
     init() throws {
         guard let device = MTLCreateSystemDefaultDevice() else { throw KernelError.unavailable("no Metal device") }
-        guard let queue = device.makeCommandQueue() else { throw KernelError.unavailable("no command queue") }
-        queue.label = "SubtitleUpscaler"
         self.device = device
-        self.queue = queue
         let options = MTLCompileOptions()
         options.mathMode = .fast
         let library = try device.makeLibrary(source: SubtitleUpscaleShaderSource.source, options: options)

@@ -144,7 +144,7 @@ struct SubtitleUpscaleTests {
         ("balanced", SubtitleUpscaler.Configuration.balanced),
     ])
     func matchesReference(_ name: String, _ configuration: SubtitleUpscaler.Configuration) throws {
-        let upscaler = try SubtitleUpscaler(configuration: configuration)
+        let upscaler = try SubtitleUpscaler(configuration: configuration, submission: Metal3Submission.shared)
         // A strip smaller than one window, one wider than a core, two lines of different lengths (bands of their own
         // widths, the gap between them cleared), and a canvas run on its content.
         let wide = SubtitleUpscaleFixtures.glyphs(width: 712, height: 132, lines: ["Wider than one core", "and taller"], fontSize: 44)
@@ -161,7 +161,7 @@ struct SubtitleUpscaleTests {
 
     @Test("an empty picture upscales to exact transparency; a solid one matches the reference")
     func emptyAndSolid() throws {
-        let upscaler = try SubtitleUpscaler(configuration: .c4f32)
+        let upscaler = try SubtitleUpscaler(configuration: .c4f32, submission: Metal3Submission.shared)
         let empty = SubtitleUpscaleFixtures.Picture(width: 50, height: 20, rgba: [UInt8](repeating: 0, count: 50 * 20 * 4))
         #expect(try Self.run(empty, upscaler).pixels.allSatisfy { $0 == .zero })
         #expect(try Self.run(empty, upscaler, content: Self.content(empty)).pixels.allSatisfy { $0 == .zero })
@@ -174,7 +174,7 @@ struct SubtitleUpscaleTests {
 
     @Test("alpha stays in [0, 1] and premultiplied colour within alpha")
     func clamps() throws {
-        let upscaler = try SubtitleUpscaler()
+        let upscaler = try SubtitleUpscaler(submission: Metal3Submission.shared)
         // Hard-edged, high-contrast content is where the networks overshoot most.
         var picture = SubtitleUpscaleFixtures.Picture(width: 64, height: 32, rgba: [UInt8](repeating: 0, count: 64 * 32 * 4))
         for y in 8..<24 { for x in 10..<54 where (x / 3 + y / 3) % 2 == 0 { picture.rgba[(y * 64 + x) * 4 ..< (y * 64 + x) * 4 + 4] = [255, 255, 255, 255] } }
@@ -192,7 +192,7 @@ struct SubtitleUpscaleTests {
         var picture = SubtitleUpscaleFixtures.glyphs(width: 480, height: 270, lines: ["Over here", "and there"], fontSize: 30,
                                                      baselineFromBottom: 20)
         for y in 40..<60 { for x in 470..<480 { picture.rgba[(y * 480 + x) * 4 ..< (y * 480 + x) * 4 + 4] = [128, 128, 128, 128] } }
-        let image = try Self.run(picture, try SubtitleUpscaler(configuration: .balanced))
+        let image = try Self.run(picture, try SubtitleUpscaler(configuration: .balanced, submission: Metal3Submission.shared))
         // Rows 70...160 of the source are more than 7 pixels from any content.
         for y in 140..<320 { for x in 0..<960 { #expect(image.pixels[y * 960 + x] == .zero) } }
     }
@@ -203,7 +203,7 @@ struct SubtitleUpscaleTests {
         for y in 0..<12 { for x in 0..<20 { picture.rgba[(y * 480 + x) * 4 ..< (y * 480 + x) * 4 + 4] = [90, 0, 0, 180] } }
         let content = Self.content(picture)
         #expect(content.bounds.minX == 0 && content.bounds.minY == 0 && content.bounds.maxY > 230)
-        let upscaler = try SubtitleUpscaler()
+        let upscaler = try SubtitleUpscaler(submission: Metal3Submission.shared)
         let whole = try Self.run(picture, upscaler)
         // Row by row, as a rectangle, or the whole picture: one output.
         #expect(try Self.run(picture, upscaler, content: content) == whole)
@@ -219,7 +219,7 @@ struct SubtitleUpscaleTests {
 
     @Test("small and odd sizes match the reference", arguments: [(1, 1), (9, 5), (37, 23), (257, 31), (8, 8), (33, 2)])
     func oddSizes(_ w: Int, _ h: Int) throws {
-        let upscaler = try SubtitleUpscaler(configuration: .c4f16)
+        let upscaler = try SubtitleUpscaler(configuration: .c4f16, submission: Metal3Submission.shared)
         var picture = SubtitleUpscaleFixtures.glyphs(width: w, height: h, lines: ["Ag"], fontSize: CGFloat(max(h, 4)))
         // Opaque corners, so every edge of the picture is exercised.
         for (x, y) in [(0, 0), (w - 1, 0), (0, h - 1), (w - 1, h - 1)] { picture.rgba[(y * w + x) * 4 ..< (y * w + x) * 4 + 4] = [255, 255, 255, 255] }
@@ -229,7 +229,7 @@ struct SubtitleUpscaleTests {
 
     @Test("a picture covered with mixed window shapes matches the Float32 reference")
     func mixedGrid() throws {
-        let upscaler = try SubtitleUpscaler(configuration: .balanced)
+        let upscaler = try SubtitleUpscaler(configuration: .balanced, submission: Metal3Submission.shared)
         // Text, and blocks in the corners, so the kept area is the whole picture: wider than the widest core and taller
         // than the tallest, its cover mixes core sizes on both axes and reaches every edge.
         let w = 2120, h = 150
@@ -254,14 +254,14 @@ struct SubtitleUpscaleTests {
             let a = Float(picture.rgba[4 * i + 3])
             for c in 0..<3 { picture.rgba[4 * i + c] = UInt8(min(255, (Float(picture.rgba[4 * i + c]) * 255 / a).rounded())) }
         }
-        let upscaler = try SubtitleUpscaler()
+        let upscaler = try SubtitleUpscaler(submission: Metal3Submission.shared)
         let e = Self.error(try Self.run(picture, upscaler, straight: true), Self.reference(picture, configuration: .default, straight: true))
         #expect(e.maxAlpha < 0.005 && e.maxColour < 0.005, "\(e)")
     }
 
     @Test("CGImage, pixel buffer and arbitrary-size conveniences")
     func conveniences() throws {
-        let upscaler = try SubtitleUpscaler()
+        let upscaler = try SubtitleUpscaler(submission: Metal3Submission.shared)
         let picture = SubtitleUpscaleFixtures.glyphs(width: 120, height: 40, lines: ["DVD"], fontSize: 30)
         let space = CGColorSpace(name: CGColorSpace.sRGB)!
         let provider = CGDataProvider(data: Data(picture.rgba) as CFData)!
