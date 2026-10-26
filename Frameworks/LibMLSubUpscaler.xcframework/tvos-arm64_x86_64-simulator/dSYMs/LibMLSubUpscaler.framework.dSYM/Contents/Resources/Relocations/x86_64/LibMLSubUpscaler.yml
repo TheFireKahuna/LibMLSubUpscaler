@@ -1,0 +1,5 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/matthewfaust/Github/tvosplayer/LibMLSubUpscaler/Development/.build/xcframework/Build/Products/Release-appletvsimulator/PackageFrameworks/LibMLSubUpscaler.framework/LibMLSubUpscaler'
+relocations:     []
+...

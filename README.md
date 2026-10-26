@@ -8,7 +8,7 @@ video's GPU time left alone.
 ```swift
 import LibMLSubUpscaler
 
-SubtitleUpscaler.prewarm(.balanced)                     // at app open, in the background
+SubtitleUpscaler.prewarm(.balanced, submission: gpu)   // at app open, in the background
 let upscaler = try SubtitleUpscaler(configuration: .balanced, submission: gpu)  // the player's GPU submission
 try upscaler.prepare(canvas: CGSize(width: 1920, height: 1080))
 let sharp = try upscaler.upscale(image)                 // CGImage, CVPixelBuffer, or MTLTexture jobs
@@ -29,7 +29,27 @@ of everything no window covers.
 The upscaler owns no command queue. Its GPU passes go through the caller's submission (`SubtitleUpscaleSubmission`,
 with `SubtitleUpscaleBatch` and `SubtitleUpscalePass`: pipelines, bindings by index, small constant arguments,
 dispatches, barriers, and an event waited on before a batch or signalled after it), so they run on the player's queue
-with its Metal, Metal 4 or Metal 3. The tests submit through a Metal 3 implementation (`Metal3Submission`).
+with its Metal, Metal 4 or Metal 3. The submission also makes the pipelines, from a `SubtitleUpscalePipelineRequest`
+(the precompiled library, a kernel, the binary archive), once for the process. The tests submit through a Metal 3
+implementation (`Metal3Submission`).
+
+## Using it
+
+Depend on this repository: its root package ships `Frameworks/LibMLSubUpscaler.xcframework` (tvOS, iOS, macOS and
+visionOS, devices and simulators), built with library evolution, so its `.swiftinterface` is a stable ABI. Public enums
+are `@frozen` only where no further case can exist (`SourceAlpha`). The framework's bundle carries the ArtCNN models
+and the precompiled shaders (`default.metallib`); the tvOS device slice also carries a Metal 4 binary archive of the
+upscaler's pipelines for the A15 (Apple TV 4K, 3rd generation), which a Metal 4 compiler given the request's archive
+takes them from. Metal takes an archive only on the OS release it was built for (tvOS 27); elsewhere they compile, at
+`prewarm(_:submission:)`.
+
+## Developing and building
+
+The source package is `Development/`: `cd Development && swift test`, and `Development/Scripts/build-xcframework.sh`
+(Xcode 27.2, macOS 26 or later) rebuilds the framework: every slice with library evolution, the shaders compiled with
+the fast math they were written for (`#pragma METAL fp math_mode(fast)`), and the archive recorded by a Metal 4
+compiler from the tvOS slice's own `default.metallib` (`Sources/Harvest`) and translated by `metal-tt`. The model
+tooling (`Scripts/ArtCNN`) and the paths below are the source package's.
 
 ## How a picture is run
 
@@ -96,7 +116,7 @@ times slower). On a Mac:
 SUBTITLE_UPSCALE_BENCH=1 swift test -c release -Xswiftc -enable-testing --filter SubtitleUpscaleBenchmarkTests
 ```
 
-On a device, call `SubtitleUpscaler.benchmark()` from a test or probe built in the Release configuration.
+On a device, call `SubtitleUpscaler.benchmark(submission:)` from a test or probe built in the Release configuration.
 
 ## Findings
 
@@ -129,7 +149,7 @@ On a device, call `SubtitleUpscaler.benchmark()` from a test or probe built in t
 
 ## Tests
 
-`swift test` checks the upscale against a Float32 reference of ArtCNN (`Tests/LibMLSubUpscalerTests/ArtCNNNetwork.swift`,
+`cd Development && swift test` checks the upscale against a Float32 reference of ArtCNN (`Tests/LibMLSubUpscalerTests/ArtCNNNetwork.swift`,
 reading `Weights/`), exact transparency away from content, the planner's cover, and the conveniences.
 
 ## Licence

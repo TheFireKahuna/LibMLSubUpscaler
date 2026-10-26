@@ -1,0 +1,4423 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "LibMLSubUpscaler",
+    "printedName": "LibMLSubUpscaler",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ArtCNNLicense",
+        "printedName": "ArtCNNLicense",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "text",
+            "printedName": "text",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16LibMLSubUpscaler13ArtCNNLicenseO4textSSvpZ",
+            "mangledName": "$s16LibMLSubUpscaler13ArtCNNLicenseO4textSSvpZ",
+            "moduleName": "LibMLSubUpscaler",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16LibMLSubUpscaler13ArtCNNLicenseO4textSSvgZ",
+                "mangledName": "$s16LibMLSubUpscaler13ArtCNNLicenseO4textSSvgZ",
+                "moduleName": "LibMLSubUpscaler",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:16LibMLSubUpscaler13ArtCNNLicenseO",
+        "mangledName": "$s16LibMLSubUpscaler13ArtCNNLicenseO",
+        "moduleName": "LibMLSubUpscaler",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ArtCNNModel",
+        "printedName": "ArtCNNModel",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "c4f16",
+            "printedName": "c4f16",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(LibMLSubUpscaler.ArtCNNModel.Type) -> LibMLSubUpscaler.ArtCNNModel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ArtCNNModel",
+                    "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                    "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "LibMLSubUpscaler.ArtCNNModel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ArtCNNModel",
+                        "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                        "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:16LibMLSubUpscaler11ArtCNNModelO5c4f16yA2CmF",
+            "mangledName": "$s16LibMLSubUpscaler11ArtCNNModelO5c4f16yA2CmF",
+            "moduleName": "LibMLSubUpscaler"
+          },
+          {
+            "kind": "Var",
+            "name": "c4f32",
+            "printedName": "c4f32",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(LibMLSubUpscaler.ArtCNNModel.Type) -> LibMLSubUpscaler.ArtCNNModel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ArtCNNModel",
+                    "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                    "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "LibMLSubUpscaler.ArtCNNModel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ArtCNNModel",
+                        "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                        "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:16LibMLSubUpscaler11ArtCNNModelO5c4f32yA2CmF",
+            "mangledName": "$s16LibMLSubUpscaler11ArtCNNModelO5c4f32yA2CmF",
+            "moduleName": "LibMLSubUpscaler"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "LibMLSubUpscaler.ArtCNNModel?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ArtCNNModel",
+                    "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                    "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:16LibMLSubUpscaler11ArtCNNModelO8rawValueACSgSS_tcfc",
+            "mangledName": "$s16LibMLSubUpscaler11ArtCNNModelO8rawValueACSgSS_tcfc",
+            "moduleName": "LibMLSubUpscaler",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16LibMLSubUpscaler11ArtCNNModelO8rawValueSSvp",
+            "mangledName": "$s16LibMLSubUpscaler11ArtCNNModelO8rawValueSSvp",
+            "moduleName": "LibMLSubUpscaler",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16LibMLSubUpscaler11ArtCNNModelO8rawValueSSvg",
+                "mangledName": "$s16LibMLSubUpscaler11ArtCNNModelO8rawValueSSvg",
+                "moduleName": "LibMLSubUpscaler",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[LibMLSubUpscaler.ArtCNNModel]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ArtCNNModel",
+                    "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                    "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16LibMLSubUpscaler11ArtCNNModelO8allCasesSayACGvpZ",
+            "mangledName": "$s16LibMLSubUpscaler11ArtCNNModelO8allCasesSayACGvpZ",
+            "moduleName": "LibMLSubUpscaler",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[LibMLSubUpscaler.ArtCNNModel]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ArtCNNModel",
+                        "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                        "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16LibMLSubUpscaler11ArtCNNModelO8allCasesSayACGvgZ",
+                "mangledName": "$s16LibMLSubUpscaler11ArtCNNModelO8allCasesSayACGvgZ",
+                "moduleName": "LibMLSubUpscaler",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:16LibMLSubUpscaler11ArtCNNModelO",
+        "mangledName": "$s16LibMLSubUpscaler11ArtCNNModelO",
+        "moduleName": "LibMLSubUpscaler",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[LibMLSubUpscaler.ArtCNNModel]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ArtCNNModel",
+                        "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                        "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Metal",
+        "printedName": "Metal",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SubtitleUpscaleSubmission",
+        "printedName": "SubtitleUpscaleSubmission",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "device",
+            "printedName": "device",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MTLDevice",
+                "printedName": "any Metal.MTLDevice",
+                "usr": "c:objc(pl)MTLDevice"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16LibMLSubUpscaler25SubtitleUpscaleSubmissionP6deviceSo9MTLDevice_pvp",
+            "mangledName": "$s16LibMLSubUpscaler25SubtitleUpscaleSubmissionP6deviceSo9MTLDevice_pvp",
+            "moduleName": "LibMLSubUpscaler",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MTLDevice",
+                    "printedName": "any Metal.MTLDevice",
+                    "usr": "c:objc(pl)MTLDevice"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16LibMLSubUpscaler25SubtitleUpscaleSubmissionP6deviceSo9MTLDevice_pvg",
+                "mangledName": "$s16LibMLSubUpscaler25SubtitleUpscaleSubmissionP6deviceSo9MTLDevice_pvg",
+                "moduleName": "LibMLSubUpscaler",
+                "genericSig": "<τ_0_0 where τ_0_0 : LibMLSubUpscaler.SubtitleUpscaleSubmission>",
+                "sugared_genericSig": "<Self where Self : LibMLSubUpscaler.SubtitleUpscaleSubmission>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "makeComputePipeline",
+            "printedName": "makeComputePipeline(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MTLComputePipelineState",
+                "printedName": "any Metal.MTLComputePipelineState",
+                "usr": "c:objc(pl)MTLComputePipelineState"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SubtitleUpscalePipelineRequest",
+                "printedName": "LibMLSubUpscaler.SubtitleUpscalePipelineRequest",
+                "usr": "s:16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler25SubtitleUpscaleSubmissionP19makeComputePipelineySo010MTLComputeI5State_pAA0deI7RequestVKF",
+            "mangledName": "$s16LibMLSubUpscaler25SubtitleUpscaleSubmissionP19makeComputePipelineySo010MTLComputeI5State_pAA0deI7RequestVKF",
+            "moduleName": "LibMLSubUpscaler",
+            "genericSig": "<τ_0_0 where τ_0_0 : LibMLSubUpscaler.SubtitleUpscaleSubmission>",
+            "sugared_genericSig": "<Self where Self : LibMLSubUpscaler.SubtitleUpscaleSubmission>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "makeBatch",
+            "printedName": "makeBatch()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any LibMLSubUpscaler.SubtitleUpscaleBatch)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SubtitleUpscaleBatch",
+                    "printedName": "any LibMLSubUpscaler.SubtitleUpscaleBatch",
+                    "usr": "s:16LibMLSubUpscaler20SubtitleUpscaleBatchP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler25SubtitleUpscaleSubmissionP9makeBatchAA0deH0_pSgyF",
+            "mangledName": "$s16LibMLSubUpscaler25SubtitleUpscaleSubmissionP9makeBatchAA0deH0_pSgyF",
+            "moduleName": "LibMLSubUpscaler",
+            "genericSig": "<τ_0_0 where τ_0_0 : LibMLSubUpscaler.SubtitleUpscaleSubmission>",
+            "sugared_genericSig": "<Self where Self : LibMLSubUpscaler.SubtitleUpscaleSubmission>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:16LibMLSubUpscaler25SubtitleUpscaleSubmissionP",
+        "mangledName": "$s16LibMLSubUpscaler25SubtitleUpscaleSubmissionP",
+        "moduleName": "LibMLSubUpscaler",
+        "genericSig": "<τ_0_0 : AnyObject, τ_0_0 : Swift.Sendable>",
+        "sugared_genericSig": "<Self : AnyObject, Self : Swift.Sendable>",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SubtitleUpscalePipelineRequest",
+        "printedName": "SubtitleUpscalePipelineRequest",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "library",
+            "printedName": "library",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MTLLibrary",
+                "printedName": "any Metal.MTLLibrary",
+                "usr": "c:objc(pl)MTLLibrary"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV7librarySo10MTLLibrary_pvp",
+            "mangledName": "$s16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV7librarySo10MTLLibrary_pvp",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MTLLibrary",
+                    "printedName": "any Metal.MTLLibrary",
+                    "usr": "c:objc(pl)MTLLibrary"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV7librarySo10MTLLibrary_pvg",
+                "mangledName": "$s16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV7librarySo10MTLLibrary_pvg",
+                "moduleName": "LibMLSubUpscaler",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "function",
+            "printedName": "function",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV8functionSSvp",
+            "mangledName": "$s16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV8functionSSvp",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV8functionSSvg",
+                "mangledName": "$s16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV8functionSSvg",
+                "moduleName": "LibMLSubUpscaler",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "archive",
+            "printedName": "archive",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.URL?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV7archive10Foundation3URLVSgvp",
+            "mangledName": "$s16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV7archive10Foundation3URLVSgvp",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.URL?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "URL",
+                        "printedName": "Foundation.URL",
+                        "usr": "s:10Foundation3URLV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV7archive10Foundation3URLVSgvg",
+                "mangledName": "$s16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV7archive10Foundation3URLVSgvg",
+                "moduleName": "LibMLSubUpscaler",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV",
+        "mangledName": "$s16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV",
+        "moduleName": "LibMLSubUpscaler",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SubtitleUpscaleBatch",
+        "printedName": "SubtitleUpscaleBatch",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "wait",
+            "printedName": "wait(for:value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MTLEvent",
+                "printedName": "any Metal.MTLEvent",
+                "usr": "c:objc(pl)MTLEvent"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler20SubtitleUpscaleBatchP4wait3for5valueySo8MTLEvent_p_s6UInt64VtF",
+            "mangledName": "$s16LibMLSubUpscaler20SubtitleUpscaleBatchP4wait3for5valueySo8MTLEvent_p_s6UInt64VtF",
+            "moduleName": "LibMLSubUpscaler",
+            "genericSig": "<τ_0_0 where τ_0_0 : LibMLSubUpscaler.SubtitleUpscaleBatch>",
+            "sugared_genericSig": "<Self where Self : LibMLSubUpscaler.SubtitleUpscaleBatch>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signal",
+            "printedName": "signal(_:value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MTLEvent",
+                "printedName": "any Metal.MTLEvent",
+                "usr": "c:objc(pl)MTLEvent"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler20SubtitleUpscaleBatchP6signal_5valueySo8MTLEvent_p_s6UInt64VtF",
+            "mangledName": "$s16LibMLSubUpscaler20SubtitleUpscaleBatchP6signal_5valueySo8MTLEvent_p_s6UInt64VtF",
+            "moduleName": "LibMLSubUpscaler",
+            "genericSig": "<τ_0_0 where τ_0_0 : LibMLSubUpscaler.SubtitleUpscaleBatch>",
+            "sugared_genericSig": "<Self where Self : LibMLSubUpscaler.SubtitleUpscaleBatch>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "makePass",
+            "printedName": "makePass()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any LibMLSubUpscaler.SubtitleUpscalePass)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SubtitleUpscalePass",
+                    "printedName": "any LibMLSubUpscaler.SubtitleUpscalePass",
+                    "usr": "s:16LibMLSubUpscaler19SubtitleUpscalePassP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler20SubtitleUpscaleBatchP8makePassAA0deH0_pSgyF",
+            "mangledName": "$s16LibMLSubUpscaler20SubtitleUpscaleBatchP8makePassAA0deH0_pSgyF",
+            "moduleName": "LibMLSubUpscaler",
+            "genericSig": "<τ_0_0 where τ_0_0 : LibMLSubUpscaler.SubtitleUpscaleBatch>",
+            "sugared_genericSig": "<Self where Self : LibMLSubUpscaler.SubtitleUpscaleBatch>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "commit",
+            "printedName": "commit(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler20SubtitleUpscaleBatchP6commityyySSSgYbcF",
+            "mangledName": "$s16LibMLSubUpscaler20SubtitleUpscaleBatchP6commityyySSSgYbcF",
+            "moduleName": "LibMLSubUpscaler",
+            "genericSig": "<τ_0_0 where τ_0_0 : LibMLSubUpscaler.SubtitleUpscaleBatch>",
+            "sugared_genericSig": "<Self where Self : LibMLSubUpscaler.SubtitleUpscaleBatch>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:16LibMLSubUpscaler20SubtitleUpscaleBatchP",
+        "mangledName": "$s16LibMLSubUpscaler20SubtitleUpscaleBatchP",
+        "moduleName": "LibMLSubUpscaler",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SubtitleUpscalePass",
+        "printedName": "SubtitleUpscalePass",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "setPipeline",
+            "printedName": "setPipeline(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MTLComputePipelineState",
+                "printedName": "any Metal.MTLComputePipelineState",
+                "usr": "c:objc(pl)MTLComputePipelineState"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler19SubtitleUpscalePassP11setPipelineyySo010MTLComputeH5State_pF",
+            "mangledName": "$s16LibMLSubUpscaler19SubtitleUpscalePassP11setPipelineyySo010MTLComputeH5State_pF",
+            "moduleName": "LibMLSubUpscaler",
+            "genericSig": "<τ_0_0 where τ_0_0 : LibMLSubUpscaler.SubtitleUpscalePass>",
+            "sugared_genericSig": "<Self where Self : LibMLSubUpscaler.SubtitleUpscalePass>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setTexture",
+            "printedName": "setTexture(_:index:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MTLTexture",
+                "printedName": "any Metal.MTLTexture",
+                "usr": "c:objc(pl)MTLTexture"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler19SubtitleUpscalePassP10setTexture_5indexySo10MTLTexture_p_SitF",
+            "mangledName": "$s16LibMLSubUpscaler19SubtitleUpscalePassP10setTexture_5indexySo10MTLTexture_p_SitF",
+            "moduleName": "LibMLSubUpscaler",
+            "genericSig": "<τ_0_0 where τ_0_0 : LibMLSubUpscaler.SubtitleUpscalePass>",
+            "sugared_genericSig": "<Self where Self : LibMLSubUpscaler.SubtitleUpscalePass>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setBuffer",
+            "printedName": "setBuffer(_:offset:index:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MTLBuffer",
+                "printedName": "any Metal.MTLBuffer",
+                "usr": "c:objc(pl)MTLBuffer"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler19SubtitleUpscalePassP9setBuffer_6offset5indexySo9MTLBuffer_p_S2itF",
+            "mangledName": "$s16LibMLSubUpscaler19SubtitleUpscalePassP9setBuffer_6offset5indexySo9MTLBuffer_p_S2itF",
+            "moduleName": "LibMLSubUpscaler",
+            "genericSig": "<τ_0_0 where τ_0_0 : LibMLSubUpscaler.SubtitleUpscalePass>",
+            "sugared_genericSig": "<Self where Self : LibMLSubUpscaler.SubtitleUpscalePass>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setBytes",
+            "printedName": "setBytes(_:index:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UnsafeRawBufferPointer",
+                "printedName": "Swift.UnsafeRawBufferPointer",
+                "usr": "s:SW"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler19SubtitleUpscalePassP8setBytes_5indexySW_SitF",
+            "mangledName": "$s16LibMLSubUpscaler19SubtitleUpscalePassP8setBytes_5indexySW_SitF",
+            "moduleName": "LibMLSubUpscaler",
+            "genericSig": "<τ_0_0 where τ_0_0 : LibMLSubUpscaler.SubtitleUpscalePass>",
+            "sugared_genericSig": "<Self where Self : LibMLSubUpscaler.SubtitleUpscalePass>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "dispatchThreads",
+            "printedName": "dispatchThreads(_:threadsPerThreadgroup:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MTLSize",
+                "printedName": "Metal.MTLSize",
+                "usr": "c:@SA@MTLSize"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MTLSize",
+                "printedName": "Metal.MTLSize",
+                "usr": "c:@SA@MTLSize"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler19SubtitleUpscalePassP15dispatchThreads_21threadsPerThreadgroupySo7MTLSizea_AGtF",
+            "mangledName": "$s16LibMLSubUpscaler19SubtitleUpscalePassP15dispatchThreads_21threadsPerThreadgroupySo7MTLSizea_AGtF",
+            "moduleName": "LibMLSubUpscaler",
+            "genericSig": "<τ_0_0 where τ_0_0 : LibMLSubUpscaler.SubtitleUpscalePass>",
+            "sugared_genericSig": "<Self where Self : LibMLSubUpscaler.SubtitleUpscalePass>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "barrier",
+            "printedName": "barrier()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler19SubtitleUpscalePassP7barrieryyF",
+            "mangledName": "$s16LibMLSubUpscaler19SubtitleUpscalePassP7barrieryyF",
+            "moduleName": "LibMLSubUpscaler",
+            "genericSig": "<τ_0_0 where τ_0_0 : LibMLSubUpscaler.SubtitleUpscalePass>",
+            "sugared_genericSig": "<Self where Self : LibMLSubUpscaler.SubtitleUpscalePass>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:16LibMLSubUpscaler19SubtitleUpscalePassP",
+        "mangledName": "$s16LibMLSubUpscaler19SubtitleUpscalePassP",
+        "moduleName": "LibMLSubUpscaler",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreGraphics",
+        "printedName": "CoreGraphics",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreText",
+        "printedName": "CoreText",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Metal",
+        "printedName": "Metal",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Metal",
+        "printedName": "Metal",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreML",
+        "printedName": "CoreML",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreVideo",
+        "printedName": "CoreVideo",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Metal",
+        "printedName": "Metal",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreML",
+        "printedName": "CoreML",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Metal",
+        "printedName": "Metal",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreGraphics",
+        "printedName": "CoreGraphics",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreVideo",
+        "printedName": "CoreVideo",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "Metal",
+        "printedName": "Metal",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "Import",
+        "name": "os",
+        "printedName": "os",
+        "declKind": "Import",
+        "moduleName": "LibMLSubUpscaler"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SubtitleUpscaler",
+        "printedName": "SubtitleUpscaler",
+        "children": [
+          {
+            "kind": "TypeDecl",
+            "name": "SourceAlpha",
+            "printedName": "SourceAlpha",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "premultiplied",
+                "printedName": "premultiplied",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha.Type) -> LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SourceAlpha",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha",
+                        "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "SourceAlpha",
+                            "printedName": "LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha",
+                            "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO13premultipliedyA2EmF",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO13premultipliedyA2EmF",
+                "moduleName": "LibMLSubUpscaler",
+                "fixedbinaryorder": 0
+              },
+              {
+                "kind": "Var",
+                "name": "straight",
+                "printedName": "straight",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha.Type) -> LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SourceAlpha",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha",
+                        "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "SourceAlpha",
+                            "printedName": "LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha",
+                            "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO8straightyA2EmF",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO8straightyA2EmF",
+                "moduleName": "LibMLSubUpscaler",
+                "fixedbinaryorder": 1
+              },
+              {
+                "kind": "Function",
+                "name": "==",
+                "printedName": "==(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SourceAlpha",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SourceAlpha",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO2eeoiySbAE_AEtFZ",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO2eeoiySbAE_AEtFZ",
+                "moduleName": "LibMLSubUpscaler",
+                "static": true,
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Var",
+                "name": "hashValue",
+                "printedName": "hashValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO9hashValueSivp",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO9hashValueSivp",
+                "moduleName": "LibMLSubUpscaler",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO9hashValueSivg",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO9hashValueSivg",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Function",
+                "name": "hash",
+                "printedName": "hash(into:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Hasher",
+                    "printedName": "Swift.Hasher",
+                    "paramValueOwnership": "InOut",
+                    "usr": "s:s6HasherV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO4hash4intoys6HasherVz_tF",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO4hash4intoys6HasherVz_tF",
+                "moduleName": "LibMLSubUpscaler",
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "AccessControl",
+              "Frozen",
+              "RawDocComment"
+            ],
+            "isEnumExhaustive": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "BitwiseCopyable",
+                "printedName": "BitwiseCopyable",
+                "usr": "s:s15BitwiseCopyableP",
+                "mangledName": "$ss15BitwiseCopyableP"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "Configuration",
+            "printedName": "Configuration",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "alphaModel",
+                "printedName": "alphaModel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ArtCNNModel",
+                    "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                    "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV10alphaModelAA11ArtCNNModelOvp",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV10alphaModelAA11ArtCNNModelOvp",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ArtCNNModel",
+                        "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                        "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV10alphaModelAA11ArtCNNModelOvg",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV10alphaModelAA11ArtCNNModelOvg",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ArtCNNModel",
+                        "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                        "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV10alphaModelAA11ArtCNNModelOvs",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV10alphaModelAA11ArtCNNModelOvs",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV10alphaModelAA11ArtCNNModelOvM",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV10alphaModelAA11ArtCNNModelOvM",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "lumaModel",
+                "printedName": "lumaModel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ArtCNNModel",
+                    "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                    "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV9lumaModelAA11ArtCNNModelOvp",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV9lumaModelAA11ArtCNNModelOvp",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ArtCNNModel",
+                        "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                        "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV9lumaModelAA11ArtCNNModelOvg",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV9lumaModelAA11ArtCNNModelOvg",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ArtCNNModel",
+                        "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                        "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV9lumaModelAA11ArtCNNModelOvs",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV9lumaModelAA11ArtCNNModelOvs",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV9lumaModelAA11ArtCNNModelOvM",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV9lumaModelAA11ArtCNNModelOvM",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(alphaModel:lumaModel:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Configuration",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ArtCNNModel",
+                    "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                    "hasDefaultArg": true,
+                    "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ArtCNNModel",
+                    "printedName": "LibMLSubUpscaler.ArtCNNModel",
+                    "hasDefaultArg": true,
+                    "usr": "s:16LibMLSubUpscaler11ArtCNNModelO"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV10alphaModel04lumaG0AeA11ArtCNNModelO_AItcfc",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV10alphaModel04lumaG0AeA11ArtCNNModelO_AItcfc",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "AccessControl"
+                ],
+                "init_kind": "Designated"
+              },
+              {
+                "kind": "Var",
+                "name": "default",
+                "printedName": "default",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Configuration",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV7defaultAEvpZ",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV7defaultAEvpZ",
+                "moduleName": "LibMLSubUpscaler",
+                "static": true,
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Configuration",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                        "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV7defaultAEvgZ",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV7defaultAEvgZ",
+                    "moduleName": "LibMLSubUpscaler",
+                    "static": true,
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "c4f32",
+                "printedName": "c4f32",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Configuration",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV5c4f32AEvpZ",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV5c4f32AEvpZ",
+                "moduleName": "LibMLSubUpscaler",
+                "static": true,
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Configuration",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                        "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV5c4f32AEvgZ",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV5c4f32AEvgZ",
+                    "moduleName": "LibMLSubUpscaler",
+                    "static": true,
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "balanced",
+                "printedName": "balanced",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Configuration",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV8balancedAEvpZ",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV8balancedAEvpZ",
+                "moduleName": "LibMLSubUpscaler",
+                "static": true,
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Configuration",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                        "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV8balancedAEvgZ",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV8balancedAEvgZ",
+                    "moduleName": "LibMLSubUpscaler",
+                    "static": true,
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "c4f16",
+                "printedName": "c4f16",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Configuration",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV5c4f16AEvpZ",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV5c4f16AEvpZ",
+                "moduleName": "LibMLSubUpscaler",
+                "static": true,
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Configuration",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                        "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV5c4f16AEvgZ",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV5c4f16AEvgZ",
+                    "moduleName": "LibMLSubUpscaler",
+                    "static": true,
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "hashValue",
+                "printedName": "hashValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV9hashValueSivp",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV9hashValueSivp",
+                "moduleName": "LibMLSubUpscaler",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV9hashValueSivg",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV9hashValueSivg",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Function",
+                "name": "hash",
+                "printedName": "hash(into:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Hasher",
+                    "printedName": "Swift.Hasher",
+                    "paramValueOwnership": "InOut",
+                    "usr": "s:s6HasherV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV4hash4intoys6HasherVz_tF",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV4hash4intoys6HasherVz_tF",
+                "moduleName": "LibMLSubUpscaler",
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "==",
+                "printedName": "==(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Configuration",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Configuration",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV2eeoiySbAE_AEtFZ",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV2eeoiySbAE_AEtFZ",
+                "moduleName": "LibMLSubUpscaler",
+                "static": true,
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Struct",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13ConfigurationV",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "UpscaleError",
+            "printedName": "UpscaleError",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "unavailable",
+                "printedName": "unavailable",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(LibMLSubUpscaler.SubtitleUpscaler.UpscaleError.Type) -> (Swift.String) -> LibMLSubUpscaler.SubtitleUpscaler.UpscaleError",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.String) -> LibMLSubUpscaler.SubtitleUpscaler.UpscaleError",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "UpscaleError",
+                            "printedName": "LibMLSubUpscaler.SubtitleUpscaler.UpscaleError",
+                            "usr": "s:16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.UpscaleError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "UpscaleError",
+                            "printedName": "LibMLSubUpscaler.SubtitleUpscaler.UpscaleError",
+                            "usr": "s:16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO11unavailableyAESScAEmF",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO11unavailableyAESScAEmF",
+                "moduleName": "LibMLSubUpscaler"
+              },
+              {
+                "kind": "Var",
+                "name": "size",
+                "printedName": "size",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(LibMLSubUpscaler.SubtitleUpscaler.UpscaleError.Type) -> (Swift.String) -> LibMLSubUpscaler.SubtitleUpscaler.UpscaleError",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.String) -> LibMLSubUpscaler.SubtitleUpscaler.UpscaleError",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "UpscaleError",
+                            "printedName": "LibMLSubUpscaler.SubtitleUpscaler.UpscaleError",
+                            "usr": "s:16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.UpscaleError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "UpscaleError",
+                            "printedName": "LibMLSubUpscaler.SubtitleUpscaler.UpscaleError",
+                            "usr": "s:16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO4sizeyAESScAEmF",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO4sizeyAESScAEmF",
+                "moduleName": "LibMLSubUpscaler"
+              },
+              {
+                "kind": "Var",
+                "name": "gpu",
+                "printedName": "gpu",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(LibMLSubUpscaler.SubtitleUpscaler.UpscaleError.Type) -> (Swift.String) -> LibMLSubUpscaler.SubtitleUpscaler.UpscaleError",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.String) -> LibMLSubUpscaler.SubtitleUpscaler.UpscaleError",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "UpscaleError",
+                            "printedName": "LibMLSubUpscaler.SubtitleUpscaler.UpscaleError",
+                            "usr": "s:16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.UpscaleError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "UpscaleError",
+                            "printedName": "LibMLSubUpscaler.SubtitleUpscaler.UpscaleError",
+                            "usr": "s:16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO3gpuyAESScAEmF",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO3gpuyAESScAEmF",
+                "moduleName": "LibMLSubUpscaler"
+              },
+              {
+                "kind": "Var",
+                "name": "description",
+                "printedName": "description",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO11descriptionSSvp",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO11descriptionSSvp",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "AccessControl"
+                ],
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO11descriptionSSvg",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO11descriptionSSvg",
+                    "moduleName": "LibMLSubUpscaler",
+                    "accessorKind": "get"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C12UpscaleErrorO",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Error",
+                "printedName": "Error",
+                "usr": "s:s5ErrorP",
+                "mangledName": "$ss5ErrorP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CustomStringConvertible",
+                "printedName": "CustomStringConvertible",
+                "usr": "s:s23CustomStringConvertibleP",
+                "mangledName": "$ss23CustomStringConvertibleP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "Job",
+            "printedName": "Job",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "source",
+                "printedName": "source",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MTLTexture",
+                    "printedName": "any Metal.MTLTexture",
+                    "usr": "c:objc(pl)MTLTexture"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV6sourceSo10MTLTexture_pvp",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV6sourceSo10MTLTexture_pvp",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MTLTexture",
+                        "printedName": "any Metal.MTLTexture",
+                        "usr": "c:objc(pl)MTLTexture"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV6sourceSo10MTLTexture_pvg",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV6sourceSo10MTLTexture_pvg",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MTLTexture",
+                        "printedName": "any Metal.MTLTexture",
+                        "usr": "c:objc(pl)MTLTexture"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV6sourceSo10MTLTexture_pvs",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV6sourceSo10MTLTexture_pvs",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV6sourceSo10MTLTexture_pvM",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV6sourceSo10MTLTexture_pvM",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "destination",
+                "printedName": "destination",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MTLTexture",
+                    "printedName": "any Metal.MTLTexture",
+                    "usr": "c:objc(pl)MTLTexture"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV11destinationSo10MTLTexture_pvp",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV11destinationSo10MTLTexture_pvp",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MTLTexture",
+                        "printedName": "any Metal.MTLTexture",
+                        "usr": "c:objc(pl)MTLTexture"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV11destinationSo10MTLTexture_pvg",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV11destinationSo10MTLTexture_pvg",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MTLTexture",
+                        "printedName": "any Metal.MTLTexture",
+                        "usr": "c:objc(pl)MTLTexture"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV11destinationSo10MTLTexture_pvs",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV11destinationSo10MTLTexture_pvs",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV11destinationSo10MTLTexture_pvM",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV11destinationSo10MTLTexture_pvM",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "sourceAlpha",
+                "printedName": "sourceAlpha",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SourceAlpha",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV11sourceAlphaAC06SourceG0Ovp",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV11sourceAlphaAC06SourceG0Ovp",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SourceAlpha",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha",
+                        "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV11sourceAlphaAC06SourceG0Ovg",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV11sourceAlphaAC06SourceG0Ovg",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SourceAlpha",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha",
+                        "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV11sourceAlphaAC06SourceG0Ovs",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV11sourceAlphaAC06SourceG0Ovs",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV11sourceAlphaAC06SourceG0OvM",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV11sourceAlphaAC06SourceG0OvM",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "content",
+                "printedName": "content",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Content",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content",
+                        "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV7contentAC7ContentVSgvp",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV7contentAC7ContentVSgvp",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Content",
+                            "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content",
+                            "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV7contentAC7ContentVSgvg",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV7contentAC7ContentVSgvg",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Content",
+                            "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content",
+                            "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV7contentAC7ContentVSgvs",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV7contentAC7ContentVSgvs",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV7contentAC7ContentVSgvM",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV7contentAC7ContentVSgvM",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(source:destination:sourceAlpha:content:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Job",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Job",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MTLTexture",
+                    "printedName": "any Metal.MTLTexture",
+                    "usr": "c:objc(pl)MTLTexture"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MTLTexture",
+                    "printedName": "any Metal.MTLTexture",
+                    "usr": "c:objc(pl)MTLTexture"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SourceAlpha",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha",
+                    "hasDefaultArg": true,
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Content",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content",
+                        "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV"
+                      }
+                    ],
+                    "hasDefaultArg": true,
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV6source11destination0F5Alpha7contentAESo10MTLTexture_p_SoAJ_pAC06SourceH0OAC7ContentVSgtcfc",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV6source11destination0F5Alpha7contentAESo10MTLTexture_p_SoAJ_pAC06SourceH0OAC7ContentVSgtcfc",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "AccessControl"
+                ],
+                "init_kind": "Designated"
+              }
+            ],
+            "declKind": "Struct",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C3JobV",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "Content",
+            "printedName": "Content",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "bounds",
+                "printedName": "bounds",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGRect",
+                    "printedName": "CoreFoundation.CGRect",
+                    "usr": "c:@S@CGRect"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV6boundsSo6CGRectVvp",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C7ContentV6boundsSo6CGRectVvp",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGRect",
+                        "printedName": "CoreFoundation.CGRect",
+                        "usr": "c:@S@CGRect"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV6boundsSo6CGRectVvg",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C7ContentV6boundsSo6CGRectVvg",
+                    "moduleName": "LibMLSubUpscaler",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "empty",
+                "printedName": "empty",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Content",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV5emptyAEvpZ",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C7ContentV5emptyAEvpZ",
+                "moduleName": "LibMLSubUpscaler",
+                "static": true,
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Content",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content",
+                        "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV5emptyAEvgZ",
+                    "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C7ContentV5emptyAEvgZ",
+                    "moduleName": "LibMLSubUpscaler",
+                    "static": true,
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(bounds:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Content",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGRect",
+                    "printedName": "CoreFoundation.CGRect",
+                    "usr": "c:@S@CGRect"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV6boundsAESo6CGRectV_tcfc",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C7ContentV6boundsAESo6CGRectV_tcfc",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "AccessControl"
+                ],
+                "init_kind": "Designated"
+              },
+              {
+                "kind": "Function",
+                "name": "scan",
+                "printedName": "scan(_:width:height:bytesPerRow:alphaOffset:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Content",
+                        "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content",
+                        "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UnsafeRawPointer",
+                    "printedName": "Swift.UnsafeRawPointer",
+                    "usr": "s:SV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV4scan_5width6height11bytesPerRow11alphaOffsetAESgSV_S4itFZ",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C7ContentV4scan_5width6height11bytesPerRow11alphaOffsetAESgSV_S4itFZ",
+                "moduleName": "LibMLSubUpscaler",
+                "static": true,
+                "declAttributes": [
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "==",
+                "printedName": "==(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Content",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Content",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Content",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV2eeoiySbAE_AEtFZ",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C7ContentV2eeoiySbAE_AEtFZ",
+                "moduleName": "LibMLSubUpscaler",
+                "static": true,
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Struct",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C7ContentV",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C7ContentV",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "SendableMetatype",
+                "printedName": "SendableMetatype",
+                "usr": "s:s16SendableMetatypeP",
+                "mangledName": "$ss16SendableMetatypeP"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "configuration",
+            "printedName": "configuration",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Configuration",
+                "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C13configurationAC13ConfigurationVvp",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13configurationAC13ConfigurationVvp",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Configuration",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13configurationAC13ConfigurationVvg",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13configurationAC13ConfigurationVvg",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Configuration",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13configurationAC13ConfigurationVvs",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13configurationAC13ConfigurationVvs",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13configurationAC13ConfigurationVvM",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13configurationAC13ConfigurationVvM",
+                "moduleName": "LibMLSubUpscaler",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "device",
+            "printedName": "device",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MTLDevice",
+                "printedName": "any Metal.MTLDevice",
+                "usr": "c:objc(pl)MTLDevice"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C6deviceSo9MTLDevice_pvp",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C6deviceSo9MTLDevice_pvp",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MTLDevice",
+                    "printedName": "any Metal.MTLDevice",
+                    "usr": "c:objc(pl)MTLDevice"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C6deviceSo9MTLDevice_pvg",
+                "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C6deviceSo9MTLDevice_pvg",
+                "moduleName": "LibMLSubUpscaler",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "prewarm",
+            "printedName": "prewarm(_:submission:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Configuration",
+                "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                "hasDefaultArg": true,
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SubtitleUpscaleSubmission",
+                "printedName": "any LibMLSubUpscaler.SubtitleUpscaleSubmission",
+                "usr": "s:16LibMLSubUpscaler25SubtitleUpscaleSubmissionP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C7prewarm_10submissionyAC13ConfigurationV_AA0D17UpscaleSubmission_ptFZ",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C7prewarm_10submissionyAC13ConfigurationV_AA0D17UpscaleSubmission_ptFZ",
+            "moduleName": "LibMLSubUpscaler",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(configuration:submission:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SubtitleUpscaler",
+                "printedName": "LibMLSubUpscaler.SubtitleUpscaler",
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Configuration",
+                "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Configuration",
+                "hasDefaultArg": true,
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C13ConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SubtitleUpscaleSubmission",
+                "printedName": "any LibMLSubUpscaler.SubtitleUpscaleSubmission",
+                "usr": "s:16LibMLSubUpscaler25SubtitleUpscaleSubmissionP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C13configuration10submissionA2C13ConfigurationV_AA0D17UpscaleSubmission_ptKcfc",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C13configuration10submissionA2C13ConfigurationV_AA0D17UpscaleSubmission_ptKcfc",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "prepare",
+            "printedName": "prepare(canvas:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGSize",
+                "printedName": "CoreFoundation.CGSize",
+                "hasDefaultArg": true,
+                "usr": "c:@S@CGSize"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C7prepare6canvasySo6CGSizeV_tKF",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C7prepare6canvasySo6CGSizeV_tKF",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "upscale",
+            "printedName": "upscale(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[LibMLSubUpscaler.SubtitleUpscaler.Job]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Job",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscaler.Job",
+                    "usr": "s:16LibMLSubUpscaler08SubtitleC0C3JobV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C7upscaleyySayAC3JobVGKF",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C7upscaleyySayAC3JobVGKF",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "upscale",
+            "printedName": "upscale(_:sourceAlpha:size:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CVBuffer",
+                "printedName": "CoreVideo.CVBuffer",
+                "usr": "c:@T@CVBufferRef"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CVBuffer",
+                "printedName": "CoreVideo.CVBuffer",
+                "usr": "c:@T@CVBufferRef"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SourceAlpha",
+                "printedName": "LibMLSubUpscaler.SubtitleUpscaler.SourceAlpha",
+                "hasDefaultArg": true,
+                "usr": "s:16LibMLSubUpscaler08SubtitleC0C11SourceAlphaO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CoreFoundation.CGSize?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGSize",
+                    "printedName": "CoreFoundation.CGSize",
+                    "usr": "c:@S@CGSize"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C7upscale_11sourceAlpha4sizeSo11CVBufferRefaAH_AC06SourceG0OSo6CGSizeVSgtKF",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C7upscale_11sourceAlpha4sizeSo11CVBufferRefaAH_AC06SourceG0OSo6CGSizeVSgtKF",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "upscale",
+            "printedName": "upscale(_:size:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGImage",
+                "printedName": "CoreGraphics.CGImage",
+                "usr": "c:@T@CGImageRef"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGImage",
+                "printedName": "CoreGraphics.CGImage",
+                "usr": "c:@T@CGImageRef"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CoreFoundation.CGSize?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGSize",
+                    "printedName": "CoreFoundation.CGSize",
+                    "usr": "c:@S@CGSize"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C7upscale_4sizeSo10CGImageRefaAG_So6CGSizeVSgtKF",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C7upscale_4sizeSo10CGImageRefaAG_So6CGSizeVSgtKF",
+            "moduleName": "LibMLSubUpscaler",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "archiveRequests",
+            "printedName": "archiveRequests(library:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[LibMLSubUpscaler.SubtitleUpscalePipelineRequest]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SubtitleUpscalePipelineRequest",
+                    "printedName": "LibMLSubUpscaler.SubtitleUpscalePipelineRequest",
+                    "usr": "s:16LibMLSubUpscaler30SubtitleUpscalePipelineRequestV"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MTLLibrary",
+                "printedName": "any Metal.MTLLibrary",
+                "usr": "c:objc(pl)MTLLibrary"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C15archiveRequests7librarySayAA0D22UpscalePipelineRequestVGSo10MTLLibrary_p_tFZ",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C15archiveRequests7librarySayAA0D22UpscalePipelineRequestVGSo10MTLLibrary_p_tFZ",
+            "moduleName": "LibMLSubUpscaler",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "SPIAccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "spi_group_names": [
+              "Archive"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "benchmark",
+            "printedName": "benchmark(iterations:submission:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SubtitleUpscaleSubmission",
+                "printedName": "any LibMLSubUpscaler.SubtitleUpscaleSubmission",
+                "usr": "s:16LibMLSubUpscaler25SubtitleUpscaleSubmissionP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:16LibMLSubUpscaler08SubtitleC0C9benchmark10iterations10submissionSSSi_AA0D17UpscaleSubmission_ptFZ",
+            "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C9benchmark10iterations10submissionSSSi_AA0D17UpscaleSubmission_ptFZ",
+            "moduleName": "LibMLSubUpscaler",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:16LibMLSubUpscaler08SubtitleC0C",
+        "mangledName": "$s16LibMLSubUpscaler08SubtitleC0C",
+        "moduleName": "LibMLSubUpscaler",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/.build\/xcframework\/Build\/Intermediates.noindex\/LibMLSubUpscaler.build\/Release-appletvsimulator\/LibMLSubUpscaler-t.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "kind": "StringLiteral",
+      "offset": 307,
+      "length": 35,
+      "value": "\"LibMLSubUpscaler_LibMLSubUpscaler\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/.build\/xcframework\/Build\/Intermediates.noindex\/LibMLSubUpscaler.build\/Release-appletvsimulator\/LibMLSubUpscaler-t.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "kind": "Array",
+      "offset": 989,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/.build\/xcframework\/Build\/Intermediates.noindex\/LibMLSubUpscaler.build\/Release-appletvsimulator\/LibMLSubUpscaler-t.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "kind": "StringLiteral",
+      "offset": 1516,
+      "length": 9,
+      "value": "\".bundle\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/.build\/xcframework\/Build\/Intermediates.noindex\/LibMLSubUpscaler.build\/Release-appletvsimulator\/LibMLSubUpscaler-t.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "kind": "StringLiteral",
+      "offset": 1668,
+      "length": 63,
+      "value": "\"unable to find bundle named LibMLSubUpscaler_LibMLSubUpscaler\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/ArtCNNCoreMLModels.swift",
+      "kind": "Array",
+      "offset": 1016,
+      "length": 13,
+      "value": "[46, 78, 142]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/ArtCNNCoreMLModels.swift",
+      "kind": "Array",
+      "offset": 1060,
+      "length": 22,
+      "value": "[256, 512, 1024, 2048]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/ArtCNNLicense.swift",
+      "kind": "StringLiteral",
+      "offset": 332,
+      "length": 1275,
+      "value": "\"ArtCNN (https:\/\/github.com\/Artoriuz\/ArtCNN)\n\nMIT License\n\nCopyright (c) 2024 João Chrisóstomo\nCopyright (c) 2024 Joao Chrisostomo, Kacper Michajłow (GLSL hooks)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and\/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleFixtures.swift",
+      "kind": "Array",
+      "offset": 779,
+      "length": 48,
+      "value": "[\"The quick brown fox jumps over the lazy dog.\"]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleFixtures.swift",
+      "kind": "IntegerLiteral",
+      "offset": 872,
+      "length": 2,
+      "value": "46"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleFixtures.swift",
+      "kind": "IntegerLiteral",
+      "offset": 965,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleKernels.swift",
+      "kind": "StringLiteral",
+      "offset": 2160,
+      "length": 28,
+      "value": "\"LibMLSubUpscaler-pipelines\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleKernels.swift",
+      "kind": "StringLiteral",
+      "offset": 2205,
+      "length": 10,
+      "value": "\"metallib\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleKernels.swift",
+      "kind": "Array",
+      "offset": 2301,
+      "length": 151,
+      "value": "[\"up_mask_bits\", \"up_mask_rows\", \"up_mask_columns\", \"up_tile_gather\", \"up_composite_tiles\", \"up_clear_rect\", \"up_resample\"]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleNeuralEngine.swift",
+      "kind": "Dictionary",
+      "offset": 1610,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleNeuralEngine.swift",
+      "kind": "Array",
+      "offset": 1680,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleNeuralEngine.swift",
+      "kind": "Array",
+      "offset": 1748,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleNeuralEngine.swift",
+      "kind": "FloatLiteral",
+      "offset": 2782,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleNeuralEngine.swift",
+      "kind": "FloatLiteral",
+      "offset": 2912,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleNeuralEngine.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2940,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleNeuralEngine.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3344,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleNeuralEngine.swift",
+      "kind": "FloatLiteral",
+      "offset": 3586,
+      "length": 3,
+      "value": "1e6"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleNeuralEngine.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3931,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleNeuralEngine.swift",
+      "kind": "Dictionary",
+      "offset": 10444,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaleTilePlan.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1609,
+      "length": 1,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "FloatLiteral",
+      "offset": 1642,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "FloatLiteral",
+      "offset": 1664,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "FloatLiteral",
+      "offset": 1686,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "FloatLiteral",
+      "offset": 1708,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3510,
+      "length": 2,
+      "value": "40"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "FloatLiteral",
+      "offset": 3663,
+      "length": 3,
+      "value": "1e6"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "Array",
+      "offset": 3699,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 3940,
+      "length": 61,
+      "value": "\"SubtitleUpscaler benchmark on \""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 3991,
+      "length": 1,
+      "value": "\", wall ms\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 4028,
+      "length": 23,
+      "value": "\"1. app open (prewarm)\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 4093,
+      "length": 23,
+      "value": "\"  GPU pipelines: %.1f\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4238,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4404,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 4442,
+      "length": 18,
+      "value": "\"first in process\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 4471,
+      "length": 10,
+      "value": "\"reloaded\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 4537,
+      "length": 92,
+      "value": "\"  Neural Engine, balanced %@: total %.1f = %d function loads %.1f + first predictions %.1f\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 4884,
+      "length": 55,
+      "value": "\"  then the fastPrediction functions behind them: %.1f\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "BooleanLiteral",
+      "offset": 5079,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 5305,
+      "length": 103,
+      "value": "\"2. prepare, first picture (unprepared upscaler's first) | 3. steady state over \""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 5398,
+      "length": 8,
+      "value": "\" pictures\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 5472,
+      "length": 7,
+      "value": "\"C4F16\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 5491,
+      "length": 7,
+      "value": "\"C4F32\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 5510,
+      "length": 10,
+      "value": "\"balanced\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5776,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 6172,
+      "length": 51,
+      "value": "\"  %@ %-8@ prepare %6.1f, first %6.2f (%6.2f) | %@\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 6384,
+      "length": 34,
+      "value": "\"      plan      \""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 6417,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 6453,
+      "length": 36,
+      "value": "\"      gather    \""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 6488,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 6524,
+      "length": 74,
+      "value": "\"      predict   \""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 6560,
+      "length": 1,
+      "value": "\"   (\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 6578,
+      "length": 7,
+      "value": "\" windows, 2 planes)\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 6633,
+      "length": 39,
+      "value": "\"      composite \""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 6671,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 6732,
+      "length": 87,
+      "value": "\"4. one prediction (both planes) per window shape, p50 (ns per window pixel and plane)\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7059,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 7139,
+      "length": 4,
+      "value": "\"\n\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 7188,
+      "length": 45,
+      "value": "\"SubtitleUpscaler benchmark failed: \""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 7232,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 7278,
+      "length": 4,
+      "value": "\"\n\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 9734,
+      "length": 11,
+      "value": "\"no device\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 9768,
+      "length": 16,
+      "value": "\"  \""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 9783,
+      "length": 1,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "Array",
+      "offset": 9968,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "IntegerLiteral",
+      "offset": 9992,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10010,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10146,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "FloatLiteral",
+      "offset": 10217,
+      "length": 3,
+      "value": "1e6"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 10330,
+      "length": 20,
+      "value": "\"  %@ %5.2f (%4.1f)\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "FloatLiteral",
+      "offset": 10387,
+      "length": 3,
+      "value": "1e6"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10400,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 11131,
+      "length": 44,
+      "value": "\"LibMLSubUpscaler-cold-\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 11174,
+      "length": 21,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "BooleanLiteral",
+      "offset": 11190,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "BooleanLiteral",
+      "offset": 11266,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "BooleanLiteral",
+      "offset": 11404,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "FloatLiteral",
+      "offset": 12793,
+      "length": 3,
+      "value": "1e6"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 12956,
+      "length": 16,
+      "value": "\"fastPrediction\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 12975,
+      "length": 9,
+      "value": "\"default\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 13019,
+      "length": 26,
+      "value": "\"  %@ %@ %@: total %.0f |\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 13081,
+      "length": 10,
+      "value": "\"parallel\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 13094,
+      "length": 10,
+      "value": "\"serial  \""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 13227,
+      "length": 10,
+      "value": "\" %@ %.0f\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 13472,
+      "length": 22,
+      "value": "\"\n      predict p50:\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "Array",
+      "offset": 13699,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "IntegerLiteral",
+      "offset": 13723,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "IntegerLiteral",
+      "offset": 13727,
+      "length": 2,
+      "value": "23"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "IntegerLiteral",
+      "offset": 13863,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "FloatLiteral",
+      "offset": 13934,
+      "length": 3,
+      "value": "1e6"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler+Benchmark.swift",
+      "kind": "StringLiteral",
+      "offset": 13990,
+      "length": 10,
+      "value": "\" %@ %.2f\""
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "FloatLiteral",
+      "offset": 10034,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "FloatLiteral",
+      "offset": 10059,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "FloatLiteral",
+      "offset": 10085,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "FloatLiteral",
+      "offset": 10113,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10137,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10399,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10403,
+      "length": 1,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10364,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 12717,
+      "length": 4,
+      "value": "1920"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 12731,
+      "length": 4,
+      "value": "1080"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 24206,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 24237,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 24268,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 24306,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 24337,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 24368,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 24405,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 24443,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 24475,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "Array",
+      "offset": 36886,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "Array",
+      "offset": 36943,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 36987,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 37024,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/matthewfaust\/Github\/tvosplayer\/LibMLSubUpscaler\/Development\/Sources\/LibMLSubUpscaler\/SubtitleUpscaler.swift",
+      "kind": "Dictionary",
+      "offset": 37076,
+      "length": 3,
+      "value": "[]"
+    }
+  ]
+}

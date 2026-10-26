@@ -2,6 +2,9 @@
 
 import PackageDescription
 
+// LibMLSubUpscaler as players take it: the XCFramework Development/Scripts/build-xcframework.sh builds from the source
+// package in Development/ (where the tests run). Library evolution gives it a stable ABI; its bundle carries the
+// precompiled shaders and the ArtCNN models.
 let package = Package(
     name: "LibMLSubUpscaler",
     platforms: [
@@ -14,21 +17,6 @@ let package = Package(
         .library(name: "LibMLSubUpscaler", targets: ["LibMLSubUpscaler"]),
     ],
     targets: [
-        .target(
-            name: "LibMLSubUpscaler",
-            // The compiled ArtCNN models, copied as they are: `.process` would have Xcode recompile them and
-            // generate classes, which `swift build` does not.
-            resources: [.copy("Models")],
-            linkerSettings: [
-                .linkedFramework("CoreML"),
-                .linkedFramework("CoreVideo"),
-                .linkedFramework("Metal"),
-            ]
-        ),
-        .testTarget(
-            name: "LibMLSubUpscalerTests",
-            dependencies: ["LibMLSubUpscaler"],
-            resources: [.copy("Weights")]
-        ),
+        .binaryTarget(name: "LibMLSubUpscaler", path: "Frameworks/LibMLSubUpscaler.xcframework"),
     ]
 )

@@ -1,8 +1,8 @@
 .DS_Store
-/.build
-/.swiftpm
+.build/
+.swiftpm/
 /Packages
 xcuserdata/
 DerivedData/
 /work
-/Scripts/ArtCNN/ane
+/Development/Scripts/ArtCNN/ane

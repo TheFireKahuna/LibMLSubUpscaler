@@ -1,0 +1,126 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.4.2 (swiftlang-6.4.2.1.4 clang-2100.4.1.1)
+// swift-module-flags: -target arm64-apple-tvos18.0-simulator -enable-objc-interop -enable-library-evolution -language-mode 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name LibMLSubUpscaler -package-name development
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.4.2
+import CoreGraphics
+import CoreML
+import CoreText
+import CoreVideo
+import Foundation
+import Foundation/*.Bundle*/
+import Foundation/*.ProcessInfo*/
+import Foundation/*.URL*/
+import Metal
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import os
+public enum ArtCNNLicense {
+  public static let text: Swift::String
+}
+public enum ArtCNNModel : Swift::String, Swift::Sendable, Swift::CaseIterable {
+  case c4f16
+  case c4f32
+  public init?(rawValue: Swift::String)
+  public typealias AllCases = [LibMLSubUpscaler::ArtCNNModel]
+  public typealias RawValue = Swift::String
+  nonisolated public static var allCases: [LibMLSubUpscaler::ArtCNNModel] {
+    get
+  }
+  public var rawValue: Swift::String {
+    get
+  }
+}
+public protocol SubtitleUpscaleSubmission : AnyObject, Swift::Sendable {
+  var device: any Metal::MTLDevice { get }
+  func makeComputePipeline(_ request: LibMLSubUpscaler::SubtitleUpscalePipelineRequest) throws -> any Metal::MTLComputePipelineState
+  func makeBatch() -> (any LibMLSubUpscaler::SubtitleUpscaleBatch)?
+}
+public struct SubtitleUpscalePipelineRequest {
+  public let library: any Metal::MTLLibrary
+  public let function: Swift::String
+  public let archive: Foundation::URL?
+}
+public protocol SubtitleUpscaleBatch : AnyObject {
+  func wait(for event: any Metal::MTLEvent, value: Swift::UInt64)
+  func signal(_ event: any Metal::MTLEvent, value: Swift::UInt64)
+  func makePass() -> (any LibMLSubUpscaler::SubtitleUpscalePass)?
+  func commit(_ completion: @escaping @Sendable (_ failure: Swift::String?) -> Swift::Void)
+}
+public protocol SubtitleUpscalePass : AnyObject {
+  func setPipeline(_ pipeline: any Metal::MTLComputePipelineState)
+  func setTexture(_ texture: any Metal::MTLTexture, index: Swift::Int)
+  func setBuffer(_ buffer: any Metal::MTLBuffer, offset: Swift::Int, index: Swift::Int)
+  func setBytes(_ bytes: Swift::UnsafeRawBufferPointer, index: Swift::Int)
+  func dispatchThreads(_ grid: Metal::MTLSize, threadsPerThreadgroup: Metal::MTLSize)
+  func barrier()
+}
+extension LibMLSubUpscaler::SubtitleUpscaler {
+  public static func benchmark(iterations: Swift::Int = 40, submission: any LibMLSubUpscaler::SubtitleUpscaleSubmission) -> Swift::String
+}
+final public class SubtitleUpscaler : @unchecked Swift::Sendable {
+  @frozen public enum SourceAlpha : Swift::Sendable, Swift::Hashable {
+    case premultiplied
+    case straight
+    public static func == (a: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::SourceAlpha, b: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::SourceAlpha) -> Swift::Bool
+    public func hash(into hasher: inout Swift::Hasher)
+    public var hashValue: Swift::Int {
+      get
+    }
+  }
+  public struct Configuration : Swift::Sendable, Swift::Hashable {
+    public var alphaModel: LibMLSubUpscaler::ArtCNNModel
+    public var lumaModel: LibMLSubUpscaler::ArtCNNModel
+    public init(alphaModel: LibMLSubUpscaler::ArtCNNModel = .c4f32, lumaModel: LibMLSubUpscaler::ArtCNNModel = .c4f32)
+    public static let `default`: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Configuration
+    public static let c4f32: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Configuration
+    public static let balanced: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Configuration
+    public static let c4f16: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Configuration
+    public static func == (a: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Configuration, b: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Configuration) -> Swift::Bool
+    public func hash(into hasher: inout Swift::Hasher)
+    public var hashValue: Swift::Int {
+      get
+    }
+  }
+  public enum UpscaleError : Swift::Error, Swift::CustomStringConvertible {
+    case unavailable(Swift::String)
+    case size(Swift::String)
+    case gpu(Swift::String)
+    public var description: Swift::String {
+      get
+    }
+  }
+  public struct Job {
+    public var source: any Metal::MTLTexture
+    public var destination: any Metal::MTLTexture
+    public var sourceAlpha: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::SourceAlpha
+    public var content: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Content?
+    public init(source: any Metal::MTLTexture, destination: any Metal::MTLTexture, sourceAlpha: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::SourceAlpha = .premultiplied, content: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Content? = nil)
+  }
+  public struct Content : Swift::Sendable, Swift::Equatable {
+    public let bounds: CoreFoundation::CGRect
+    public static let empty: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Content
+    public init(bounds: CoreFoundation::CGRect)
+    public static func scan(_ base: Swift::UnsafeRawPointer, width: Swift::Int, height: Swift::Int, bytesPerRow: Swift::Int, alphaOffset: Swift::Int) -> LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Content?
+    public static func == (a: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Content, b: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Content) -> Swift::Bool
+  }
+  final public var configuration: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Configuration {
+    get
+    set
+  }
+  final public var device: any Metal::MTLDevice {
+    get
+  }
+  public static func prewarm(_ configuration: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Configuration = .default, submission: any LibMLSubUpscaler::SubtitleUpscaleSubmission)
+  public init(configuration: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Configuration = .default, submission: any LibMLSubUpscaler::SubtitleUpscaleSubmission) throws
+  final public func prepare(canvas: CoreFoundation::CGSize = CGSize(width: 1920, height: 1080)) throws
+  final public func upscale(_ jobs: [LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::Job]) throws
+  final public func upscale(_ pixelBuffer: CoreVideo::CVPixelBuffer, sourceAlpha: LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::SourceAlpha = .premultiplied, size: CoreFoundation::CGSize? = nil) throws -> CoreVideo::CVPixelBuffer
+  final public func upscale(_ image: CoreGraphics::CGImage, size: CoreFoundation::CGSize? = nil) throws -> CoreGraphics::CGImage
+  @objc deinit
+}
+extension LibMLSubUpscaler::ArtCNNModel : Swift::Equatable {}
+extension LibMLSubUpscaler::ArtCNNModel : Swift::Hashable {}
+extension LibMLSubUpscaler::ArtCNNModel : Swift::RawRepresentable {}
+extension LibMLSubUpscaler::SubtitleUpscaler.LibMLSubUpscaler::SourceAlpha : Swift::BitwiseCopyable {}
